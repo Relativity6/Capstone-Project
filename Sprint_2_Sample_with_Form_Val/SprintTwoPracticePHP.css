@@ -1,0 +1,160 @@
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    width: 100%;
+    height: 200px;
+    border-bottom: 2px solid black;
+    background-color: rgb(133, 116, 211);
+    background-image: -webkit-linear-gradient(rgb(133,116,211), rgb(71, 52, 158));
+    background-image:-moz-linear-gradient(rgb(133,116,211), rgb(71, 52, 158));
+}
+
+#logo {
+    width: 194px;
+    height: 194px;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(184, 176, 255);
+    background-image: -webkit-linear-gradient(rgb(184,176,255), rgb(147, 136, 243));
+    border-bottom: 2px solid black;
+}
+
+#container {
+    width: 560px;
+    height: 580px;
+    margin: 0 auto;
+    margin-top: 160px;
+    background-color:rgb(223, 225, 255);
+    border: 1px black solid;
+    border-radius: 15px;
+    box-shadow: 1px 2px 1px;
+}
+
+#container h1 {
+    width: 250px;
+    height: 1.5em;
+    padding-top: .3em;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 1px 1px grey;
+    background-color: rgb(232, 206, 255);
+    background-image: -webkit-radial-gradient(rgb(255, 255, 255), rgb(177, 160, 253));
+    background-image: -moz-radial-gradient(rgb(255, 255, 255), rgb(177, 160, 253));
+    border: 1px black solid;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px;
+}
+
+fieldset {
+    width: 460px;
+    height: 360px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color:rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+legend {
+    padding: .5em;
+    padding-left: .75em;
+    padding-right: .75em;
+    background-color: rgb(232, 206, 255);
+    background-image: -webkit-radial-gradient(rgb(255, 255, 255), rgb(218, 176, 255));
+    background-image: -moz-radial-gradient(rgb(255, 255, 255), rgb(218, 176, 255));
+    border: 1px black solid;
+    border-radius: 10px;
+    box-shadow: 1px 1px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+}
+
+#firstfield {
+    margin-top: 30px;
+}
+
+fieldset div {
+    width: 360px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submitbutton {
+    height: 40px;
+}
+
+fieldset p {
+    margin: 0;
+    padding-right: 40px;
+    float: right;
+    color: red;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px rgb(85, 23, 23);
+}
+
+#valmsg {
+    margin: 0px;
+    padding: 0px;
+    padding-right: 40px;
+    float: right;
+    color: black;
+    font-size: 14pt;
+}
+
+.title {
+    width: 100px;
+    padding-top: 5px;
+    padding-right: 10px;
+    float: left;
+    text-align: right;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13pt;
+}
+
+input {
+    width: 220px;
+    height: 24px;
+}
+
+#submit {
+    float: right;
+    width: 150px;
+    height: 2em;
+    border-radius: 5px;
+    background-color:rgb(235, 242, 255);
+    box-shadow: 1px 1px 1px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+}
+
+#submit:hover {
+    font-weight: bold;
+}
+
+#submit:active {
+    background-color:rgb(227, 202, 250);
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgb(196, 174, 255);
+    background-image: -webkit-linear-gradient(rgb(184,176,255), rgb(147, 136, 243));
+    border-top: 2px solid black;
+}
