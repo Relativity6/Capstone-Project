@@ -76,7 +76,7 @@
                         </div>
 
                         <div>
-                            <input type = "text" id = "password" name = "password" value = "<?= htmlspecialchars($user['password']) ?>"/>
+                            <input type = "password" id = "password" name = "password" value = "<?= htmlspecialchars($user['password']) ?>"/>
                         </div>
 
                         <div>
