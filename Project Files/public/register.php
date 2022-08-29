@@ -1,11 +1,18 @@
 <?php
 declare(strict_types = 1);
-use Capstone\Validate\Validate;
+// use Capstone\Validate\Validate;
 
 include '../src/bootstrap.php';
 
 // Initialize arrays
-$member = [];
+$member = [
+    'fname' => '',
+    'lname' => '',
+    'email' => '',
+    'password' => '',
+    'profile_pic' => '/img/Default_Profile_Pic.jpg',
+    'phone_num' => ''
+];
 $errors = [
     'fname' => '',
     'lname' => '',
@@ -36,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
         ? '' : 'Passwords must be at least 8 characters and have:<br> 
                 A lowercase letter<br>An uppercase letter<br>A number 
                 <br>And a special character';
-    $errors['confirm']   = ($member['password'] = $confirm)
+    $errors['confirm']   = ($member['password'] = $confirm_password)
         ? '' : 'Passwords do not match';
     $errors['phone_num'] = Validate::isPhoneNum($member['phone_num'])
         ? '' : 'Must be a valid 11 digit phone number';

@@ -17,3 +17,5 @@ spl_autoload_register(function($class)                   // Set autoload functio
     require $path . $class . '.php';                     // Include class definition
 });
 
+$cms = new CMS($dsn, $username, $password);
+unset($dsn, $username, $password);
