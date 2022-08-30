@@ -1,10 +1,8 @@
 <?php
 declare(strict_types = 1);
-// use Capstone\Validate\Validate;
-
 include '../src/bootstrap.php';
 
-// Initialize arrays
+// Initialize variables
 $member = [
     'fname' => '',
     'lname' => '',
@@ -13,16 +11,23 @@ $member = [
     'profile_pic' => '/img/Default_Profile_Pic.jpg',
     'phone_num' => ''
 ];
+
 $errors = [
     'fname' => '',
     'lname' => '',
     'email' => '',
     'password' => '',
     'confirm' => '',
+    'profile_pic' => '',
     'phone_num' => ''
 ];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     // If form was submitted
+$destination = '';
+$saved = null;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                                         // If form was submitted
+
+    
 
     // Get form data
     $member['fname']        = $_POST['fname'];
@@ -48,17 +53,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
     $errors['phone_num'] = Validate::isPhoneNum($member['phone_num'])
         ? '' : 'Must be a valid 11 digit phone number';
 
-    $invalid = implode($errors);                                            // Join error messages
+    // Picture upload
+    $temp = $_FILES['profile_pic']['tmp_name'];                                                     // Temporary uploaded file name
 
-    if (!$invalid) {                                                        // If no errors
-        $result = $cms->getMember()->create($member);                       // Create member
+    $errors['profile_pic'] = ($_FILES['profile_pic']['error'] === 1) ? 'File too big' : '';         // If file too big
+    
+    if (is_uploaded_file($temp) and $_FILES['profile_pic']['error'] == 0) {                         // If a file was uploaded and there was no error in $_FILES superglobal array
 
-        if ($result === false) {                                            // If result is false, email is already in use
+        // Validate file type and size
+        $errors['profile_pic'] = in_array(mime_content_type($temp), MEDIA_TYPES) ? '' : 'Wrong file type';
+        $extension = strtolower(pathinfo($_FILES['profile_pic']['name'], PATHINFO_EXTENSION));
+        $errors['profile_pic'] .= in_array($extension, FILE_EXTENSIONS) ? '' : 'Wrong file extension. ';
+        $errors['profile_pic'] .= ($_FILES['profile_pic']['size'] <= MAX_SIZE) ? '' : 'File too big. ';
+        
+        // Create a destination file name and save to uploads folder
+        if ($errors['profile_pic'] === '') {
+            $member['profile_pic'] = create_filename($_FILES['profile_pic']['name'], UPLOADS);
+            $destination = 'uploads/' . $member['profile_pic'];                                     //Navigate to uploads from this file
+            move_uploaded_file($temp, $destination);
+        }
+
+    }
+
+
+
+
+    $invalid = implode($errors);                                                                    // Join error messages
+
+    if (!$invalid) {                                                                                // If no errors
+        $result = $cms->getMember()->create($member);                                               // Create member
+
+        if ($result === false) {                                                                    // If result is false, email is already in use
             $errors['email'] = 'Email address already used';
         }
         
-        else {                                                              // If successful, redirect to login
-            redirect('login.php', ['success' => 'Thanks for joining! Please log in.']);        
+        else {                                                                                      // If successful, redirect to login
+            // Redirect to login.php is commented out until that page is completed
+            // redirect('login.php', ['success' => 'Thanks for joining! Please log in.']);        
         }
     }
 }
@@ -86,6 +117,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
 
                 <h1>Create your free account</h1>
                 <h3>Get started by entering your information below</h3>
+
+                <?= UPLOADS ?>
+                <?= $destination ?>
 
                 <form action = 'register.php' method = 'POST' enctype = 'multipart/form-data' accept = 'image/*'>
                     <!-- First name -->
