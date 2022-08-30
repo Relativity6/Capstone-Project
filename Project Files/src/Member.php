@@ -17,7 +17,7 @@ class Member
         return $this->db->runSQL($sql, [$id])->fetch();
     }
 
-    public function create(array $member): bool
+    public function create(array $member, string $temporary, string $destination): bool
     {
         $member['password'] = password_hash(($member['password']), PASSWORD_DEFAULT);
 
@@ -29,10 +29,15 @@ class Member
         }
 
         catch (PDOException $e) {
+            if (file_exists($destination)) {
+                unlink($destination);
+            }
             if ($e->errorInfo[1] === 1062) {
                 return false;
             }
             throw $e;
         }
     }
+
+    // Delete member function not complete
 }
