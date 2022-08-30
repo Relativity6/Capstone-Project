@@ -7,7 +7,7 @@ $this_folder   = substr(__DIR__, strlen($_SERVER['DOCUMENT_ROOT']));            
 $parent_folder = dirname($this_folder);                                               // Parent of this folder
 
 
-define("DOC_ROOT", $parent_folder . '/public/');                                      // Document root (Capstone/public/)
+define("DOC_ROOT", DIRECTORY_SEPARATOR . 'Capstone' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);                                      // Document root (Capstone/public/)
 
 // Database settings
 $type = 'mysql';
@@ -21,7 +21,7 @@ $password = 'IFT402_Capstone';
 $dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset";
 
 // File upload settings
-define('UPLOADS', DOC_ROOT . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR); //Image upload folder
+define('UPLOADS', DOC_ROOT . 'uploads' . DIRECTORY_SEPARATOR); //Image upload folder
 define('MEDIA_TYPES', ['image/jpeg', 'image/png', 'image/gif',]);                    // Allowed file types
 define('FILE_EXTENSIONS', ['jpeg', 'jpg', 'png', 'gif',]);                           // Allowed file extensions
 define('MAX_SIZE', '5242880');                                                       // Max file size

@@ -1,1 +1,1 @@
-
+Pages that should only be accessible by users who hold the "admin" role of the group being accessed by the respective page. (ie., edit-group.php, which will take a group ID in the query string, should only be accessed by the group's admin)
