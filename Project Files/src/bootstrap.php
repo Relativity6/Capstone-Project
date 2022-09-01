@@ -19,3 +19,5 @@ spl_autoload_register(function($class)                   // Set autoload functio
 
 $cms = new CMS($dsn, $username, $password);
 unset($dsn, $username, $password);
+
+$session = $cms->getSession();
