@@ -83,8 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
         }
         
         else {                                                                                      // If successful, redirect to login
-            // Redirect to login.php is commented out until that page is completed
-            // redirect('login.php', ['success' => 'Thanks for joining! Please log in.']);        
+            redirect('login.php', ['success' => 'Thanks for joining! Please log in.']);        
         }
     }
 }
