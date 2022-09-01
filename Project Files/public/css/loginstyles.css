@@ -1,0 +1,75 @@
+body {
+    background-image: url("../img/loginbackground.jpg");
+}
+
+
+h2 {
+    height: 50px;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3 {
+    height: 50px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 100pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+input {
+    width: 90%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+form {
+    width: 500px;
+    height: 390px;
+    margin: 0 auto;
+    margin-top: 10%;
+    text-align: center;
+    font-size: 10pt;
+    background-color:whitesmoke;
+}
+p {
+    font-size: 16px;
+}
+.button {
+    border: none;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.invalid-feedback {
+    height: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+}
+.alert-danger {
+    height: 30px;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    background-color: whitesmoke;
+}
+
+label {
+    font-size: 14pt;
+}
