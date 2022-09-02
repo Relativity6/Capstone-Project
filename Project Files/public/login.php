@@ -1,97 +1,44 @@
 <?php
-// Session start
-session_start();
- 
-// Takes you to welcome screen but need to change to profile page
-// *************Need to change location***********************************************************
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
-    exit;
+declare(strict_types = 1);
+include '../src/bootstrap.php';
+$email = '';
+$errors = [
+    'email' => '',
+    'password' => '',
+    'message' => ''
+];
+$success = $_GET['success'] ?? null;
+$member = null;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $errors['email'] = Validate::isEmail($email) ? '' : 'Please enter a valid email address';
+    $errors['password'] = Validate::isPassword($password) ? '' : 'Passwords must be at least 8 characters and have: <br>
+                                                                    <span id = "password_rules">A lowercase letter<br>
+                                                                    An uppercase letter<br>
+                                                                    A number<br>And a special character</span>';
+    $invalid = implode($errors);
+
+    if ($invalid) {
+        $errors['message'] = 'Please try again';
+    } 
+    else {
+       $member = $cms->getMember()->login($email, $password);
+    }
+
+    if ($member) {
+        $cms->getSession()->create($member);
+        redirect('profile.php', ['id' => $member['id'],]);
+    }
+    else {
+        $errors['message'] = 'Please try again.';
+    }
 }
 
-// *****************************Change location of config.php if needed***************************
-require_once "../config/config.php";
- 
-// Initialize variables as empty values 
-$username = $password = "";
-$username_err = $password_err = $login_err = "";
- 
-// Processes the data from the form
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username and/or password is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
-    } else{
-        $username = trim($_POST["username"]);
-    }
-    
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Checks login information
-    if(empty($username_err) && empty($password_err)){
-        
-        // Makes a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-
-            $param_username = $username;
-            
-            //Execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Saves result
-                mysqli_stmt_store_result($stmt);
-                
-                // Checks if the username exists and if the password is correct
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Binds variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            // If password is correct for username it will start session
-                            session_start();
-                            
-                            // Puts data for session into variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
-                            // Takes you to welcome screen but need to change to profile page
-                            // *************Need to change location***********************************************************
-                            header("location: welcome.php");
-                        } else{
-                            // Gives error if password is not correct
-                            $login_err = "Invalid username or password.";
-                        }
-                    }
-                } else{
-                    // Gives error if the username doesn't exist
-                    $login_err = "Invalid username or password.";
-                }
-            } 
-            else{
-                echo "Something went wrong. Please try again later.";
-            }
-
-
-            mysqli_stmt_close($stmt);
-        }
-    }
-
-    mysqli_close($link);
-}
 ?>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="icon" type="image/x-icon" href="../Graphics/Hatchful_Logos/favicon.ico">
-    <link rel="stylesheet" href="css/loginstyles.css">
+    <link rel="stylesheet" href="css/test.css">
 </head>
 
 <body> 
@@ -109,33 +56,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form">
                 <!-- Might have to correct link -->
                 <h2><img src="../Graphics/Hatchful_Logos/logo_transparent.png" alt="LuminHealth" style="width:100px;height:100px;"></h2>
-                <h2>Login</h2>
-                
-                <?php 
-                if(!empty($login_err)){
-                    echo '<div class="alert alert-danger">' . $login_err . '</div>';
-                }        
-                ?>
-                
-
+                <h2>Login</h2>                
             </div>
 
-            <div class="form">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            </div>  
+            <div id = 'form_div'>
+                    <form action = 'login.php' method = 'POST'>
+                        
+                        <!-- If redirected from Register.php -->
+                        <?php if ($success && $errors['message'] == '') { ?>
+                            <h3>
+                                <?= $success ?>
+                            </h3>
+                        <?php } ?>
 
-            <div class="form">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
-            </div>
+                        <!-- Error message -->
+                        <?php if ($errors['message']) { ?>
+                            <h3 class = 'warning'>
+                                <?= $errors['message'] ?>
+                            </h3>
+                        <?php } ?>
 
-            <div class="button">
-                <input type="submit" class="btn btn-primary" value="Login">
-            </div>
+                        <!-- Email -->
+                        <label for = 'email'>Email:</label>
+                        <input type = 'email' name = 'email'>
+                        <?php if ($errors['email']) {?>
+                                <p class = 'warning'>
+                                    <?= $errors['email'] ?>
+                                </p>
+                        <?php } ?>
 
+                        <!-- Password -->
+                        <label for = 'password'>Password:</label>
+                        <input type = 'password' name = 'password'>
+                        <?php if ($errors['password']) {?>
+                                <p class = 'warning'>
+                                    <?= $errors['password'] ?>
+                                </p>
+                        <?php } ?>
+                            
+                        <input type = 'submit' id = 'submit' value = 'Login'>
 <!-- Change to correct register.php file/location-->            
             <p>Create an account? <a href="register.php">Sign up now</a>.</p>
         </form>
