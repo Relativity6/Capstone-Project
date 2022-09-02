@@ -39,5 +39,21 @@ class Member
         }
     }
 
+    public function login(string $email, string $password)
+    {
+        $sql = "SELECT id, fname, lname, email, password, profile_pic, phone_num
+                FROM members
+                WHERE email = :email;";
+        
+        $member = $this->db->runSQL($sql, [$email])->fetch();
+        
+        if (!$member) {
+            return false;
+        }
+
+        $authenticated = password_verify($password, $member['password']);
+        return ($authenticated ? $member : false);
+    }
+
     // Delete member function not complete
 }
