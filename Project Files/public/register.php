@@ -8,7 +8,7 @@ $member = [
     'lname' => '',
     'email' => '',
     'password' => '',
-    'profile_pic' => '/img/Default_Profile_Pic.jpg',
+    'profile_pic' => 'Default_Profile_Pic.jpg',
     'phone_num' => ''
 ];
 
@@ -184,6 +184,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
 
                         <input type = 'submit' id = 'submit'>
                     </form>
+                    <p id = 'login_prompt'>
+                        Already have an account? Login <a href = 'login.php'>here.</a>
+                    </p>
                 </div>
             </div>
         </div>
