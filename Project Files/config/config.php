@@ -2,12 +2,7 @@
 define('DEV', true);                                                                  // Development = true | Live = false
 define('DOMAIN', 'http://localhost:8888'); 
 
-// Folder Constants
-$this_folder   = substr(__DIR__, strlen($_SERVER['DOCUMENT_ROOT']));                  // Folder this file is in
-$parent_folder = dirname($this_folder);                                               // Parent of this folder
-
-
-define("DOC_ROOT", DIRECTORY_SEPARATOR . 'Capstone' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);                                      // Document root (Capstone/public/)
+define("DOC_ROOT", DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR );            // Document root (public_html in Linux)
 
 // Database settings
 $type = 'mysql';
