@@ -1,6 +1,7 @@
 <?php
 declare(strict_types = 1);
 include '../src/bootstrap.php';
+
 $email = '';
 $errors = [
     'email' => '',
@@ -25,41 +26,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['message'] = 'Please try again';
     } 
     else {
-       $member = $cms->getMember()->login($email, $password);
+        $member = $cms->getMember()->login($email, $password);
     }
 
     if ($member) {
         $cms->getSession()->create($member);
-        redirect('profile.php', ['id' => $member['id'],]);
+        redirect('profile.php');
     }
     else {
         $errors['message'] = 'Please try again.';
     }
 }
-
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
+<html lang = 'en'>
+    <head>
+        <title>
+            LuminHealth | Login
+        </title>
+        <meta charset = 'utf-8'>
+        <meta name = 'description' content = ''>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+        <link rel = 'stylesheet' href = 'css/login.css'>
+    </head>
+    <body>
+        <div id = 'container'>
+            <img id = 'hero_image' src = 'img/Hero_image4.jpg' alt = ''/>
 
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="icon" type="image/x-icon" href="../Graphics/Hatchful_Logos/favicon.ico">
-    <link rel="stylesheet" href="css/test.css">
-</head>
-
-<body> 
-    <div class="form">
-
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form">
-                <!-- Might have to correct link -->
-                <h2><img src="../Graphics/Hatchful_Logos/logo_transparent.png" alt="LuminHealth" style="width:100px;height:100px;"></h2>
-                <h2>Login</h2>                
-            </div>
-
-            <div id = 'form_div'>
+            <div id = 'content'>
+                <img id = 'logo' src = 'img/logo2_transparent.png' alt = 'LuminHealth logo'>
+                
+                <h1>Sign in</h1>
+                <div id = 'form_div'>
                     <form action = 'login.php' method = 'POST'>
                         
                         <!-- If redirected from Register.php -->
@@ -93,11 +94,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <?= $errors['password'] ?>
                                 </p>
                         <?php } ?>
+
+                        <p id = 'register_prompt'>
+                            Don't have an account yet? Register <a href = 'register.php'>here.</a>
+                        </p>
                             
                         <input type = 'submit' id = 'submit' value = 'Login'>
-<!-- Change to correct register.php file/location-->            
-            <p>Create an account? <a href="register.php">Sign up now</a>.</p>
-        </form>
-    </div>
-</body>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
