@@ -20,7 +20,6 @@ body {
     border-radius: 10px;
     box-shadow: 3px 3px 4px rgb(160, 160, 160);
     background-color: #FFFFFF;
-    /* overflow: auto; */
 }
 
 #hero_image {
@@ -42,8 +41,6 @@ body {
     padding-left: 20px;
     float: left;
     position: relative;
-    /* overflow: auto; */
-    /* border: 1px dotted black; */
 }
 
 #logo {
@@ -51,7 +48,6 @@ body {
     height: 100px;
     width: 300px;
     margin-top: 30px;
-    /* border: 1px dotted black; */
 }
 
 h1 {
@@ -75,7 +71,6 @@ form {
     margin-top: 10px;
     margin-left: 30px;
     height: auto;
-    /* border: 1px dotted black; */
 }
 
 form input {
@@ -93,11 +88,14 @@ form label {
     margin-bottom: 10px;
 }
 
+#login_prompt {
+    font-size: 10pt;
+    margin-left: 30px;
+}
+
 #submit {
     height: 30px;
     width: 150px;
-    /* margin-top: 50px; */
-    /* margin-right: 60px; */
     float: right;
     font-size: 12pt;
     font-family: 'raleway', sans-serif;
