@@ -1,0 +1,125 @@
+body {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+#container {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom right, #FFFFFF, #e7dfd6);
+    overflow: auto;
+}
+
+header {
+    box-sizing: border-box;
+    height: 150px;
+    margin: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #71004080;
+    box-shadow: 0px 1px 3px #7e3046;
+}
+
+#header_logo {
+    height: 100px;
+    width: 300px;
+    padding: 0;
+    float: left;
+    position: relative;
+    left: 30px;
+    top: 25px;
+}
+
+#header_nav {
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+    width: 500px;
+    margin: 0;
+    float: right;
+}
+
+#thumbnail {
+    box-sizing: border-box;
+    height: 80px;
+    width: 80px;
+    margin-top: 30px;
+    margin-right: 40px;
+    border-radius: 50%;
+    border: 1px solid #710020;
+    box-shadow: 2px 2px 3px gray;
+    float: right;
+}
+
+#header_nav ul {
+    box-sizing: border-box;
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    bottom: 10px;
+    font-size: 17pt;
+    margin: 0;
+}
+
+#header_nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+#header_nav li a {
+    text-decoration: none;
+    font-weight:500;
+    color: #710040;
+}
+
+#header_nav #current {
+    font-weight: 600;
+}
+
+main {
+    box-sizing: border-box;
+    height: max-content;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero_image {
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 3px gray;
+}
+
+#content {
+    width: 800px;
+    height: 400px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f3edef;
+    border-radius: 5px;
+    border: 1px solid #710020;
+    box-shadow: 2px 3px 3px gray;
+}
+
+footer {
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    border-top: 3px ridge #71004080;
+    
+}
