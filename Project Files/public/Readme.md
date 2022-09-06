@@ -15,4 +15,4 @@ Screenshot:
 Page: profile.php  
 Summary: Users may see their profile information on this page. If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![Profile](https://user-images.githubusercontent.com/40231621/188531227-4fc2e763-161c-4371-9f3f-819b89b962f9.jpg)
+![Profile](https://user-images.githubusercontent.com/40231621/188543451-dd64b8ed-6556-4d25-9c17-e7f382ede4b5.jpg)
