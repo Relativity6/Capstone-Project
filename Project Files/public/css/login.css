@@ -1,0 +1,118 @@
+body {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/alexander-grey-62vi3TG5EDg-unsplash.jpg');
+    background-position: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+#container {
+    box-sizing: border-box;
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px rgb(160, 160, 160);
+    background-color: #FFFFFF;
+}
+
+#hero_image {
+    box-sizing: border-box;
+    width: 370px;
+    height: 560px;
+    margin-left: 10px;
+    float: left;
+    border-radius: 10px;
+}
+
+#content {
+    box-sizing: border-box;
+    height: 560px;
+    width: 350px;
+    margin-left: 20px;
+    padding-left: 20px;
+    float: left;
+    position: relative;
+}
+
+#logo {
+    box-sizing: border-box;
+    height: 100px;
+    width: 300px;
+    margin-top: 50px;
+}
+
+h1 {
+    margin-left: 20px;
+    margin-bottom: 0px;
+    font-size: 20pt;
+    color: #710040;
+}
+
+h3.warning {
+    margin-top: 0px;
+}
+
+#form_div {
+    margin: 0;
+    padding: 0;
+    height: 520px;
+    overflow: auto;
+}
+
+form {
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: auto;
+}
+
+form input {
+    width: 280px;
+    margin-bottom: 10px;
+    font-family: 'raleway', sans-serif;
+}
+
+input#phone_num {
+    width: 200px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#register_prompt {
+    font-size: 10pt;
+    text-indent: 1em;
+}
+
+#submit {
+    height: 30px;
+    width: 100px;
+    float: right;
+    font-size: 12pt;
+    font-family: 'raleway', sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: #71004030;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.warning {
+    margin-top: 0px;
+    color: rgb(160, 0, 0);
+}
+
+#password_rules {
+    font-size: 11pt;
+}
