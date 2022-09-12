@@ -37,11 +37,11 @@ class CMS
     //     return $this->membership;
     // }
 
-    // public function getSession()
-    // {
-    //     if ($this->session === null) {
-    //         $this->session = new Session($this->db);
-    //     }
-    //     return $this->session;
-    // }
+    public function getSession()
+    {
+        if ($this->session === null) {
+            $this->session = new Session($this->db);
+        }
+        return $this->session;
+    }
 }
