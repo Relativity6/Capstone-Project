@@ -55,5 +55,54 @@ class Member
         return ($authenticated ? $member : false);
     }
 
-    // Delete member function not complete
+    public function update(int $id, array $member): bool
+    {
+        // Remove Member array elements that cannot be edited by this function
+        unset($member['email'], $member['password'], $member['profile_pic']);
+        $fname = $member['fname'];
+        $lname = $member['lname'];
+        $phone_num = $member['phone_num'];
+
+        // Update rest of elements with provided values
+        $sql = "UPDATE members
+                SET fname = :fname, lname = :lname, phone_num = :phone_num
+                WHERE id = :id;";
+
+        $this->db->runSql($sql, ['id' => $id, 'fname' => $fname, 'lname' => $lname, 'phone_num' => $phone_num]);
+        return true;
+    }
+
+    public function changePicture(int $id, string $old_pic,  string $new_pic): bool
+    {
+        // Delete old picture
+        $unlink = unlink('uploads/' . $old_pic);
+        if ($unlink === false) {
+            throw new Exception('Unable to delete image or image is missing');
+        }
+        
+        // Update entry in Members table in DB
+        $sql = "UPDATE members
+                SET profile_pic = :new_pic
+                WHERE id = :id;";
+        $this->db->runSql($sql, ['new_pic' => $new_pic, 'id' => $id],);
+        return true;
+    }
+
+    public function deleteMember(int $id, string $profile_pic): bool
+    {
+        // Delete profile picture form Uploads folder
+        if ($profile_pic != 'Default.jpg') {
+            $unlink = unlink('uploads/' . $profile_pic);
+
+            if ($unlink === false) {
+                throw new Exception('Unable to delete image or image is missing');
+            }
+        }
+       
+        // Delete member from database
+        $sql = 'DELETE FROM members
+                WHERE id = :id;';
+        $this->db->runSql($sql, [$id]);
+        return true;
+    }
 }
