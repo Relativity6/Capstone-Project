@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 include '../src/bootstrap.php';
 
+// Initialize variables
 $email = '';
 $errors = [
     'email' => '',
@@ -15,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Validation
     $errors['email'] = Validate::isEmail($email) ? '' : 'Please enter a valid email address';
     $errors['password'] = Validate::isPassword($password) ? '' : 'Passwords must be at least 8 characters and have: <br>
                                                                     <span id = "password_rules">A lowercase letter<br>
@@ -22,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                     A number<br>And a special character</span>';
     $invalid = implode($errors);
 
+    // Display error message or call Login function of Member class
     if ($invalid) {
         $errors['message'] = 'Please try again';
     } 
@@ -29,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $member = $cms->getMember()->login($email, $password);
     }
 
+    // If Login function returns true, create new session
     if ($member) {
         $cms->getSession()->create($member);
         redirect('profile.php');
