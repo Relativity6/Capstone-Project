@@ -72,6 +72,12 @@ if (!$member) {                                             // If user not found
                             </tr>
                         </table>
                     </div>
+
+                    <a id = 'edit_button' href = 'edit-profile.php'>
+                        <p>
+                            Edit profile info
+                        </p>
+                    </a>
                 </div>
 
                 <div class = 'section'>
@@ -83,14 +89,14 @@ if (!$member) {                                             // If user not found
 
                     <img id = 'profile_picture' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
 
-                    <?php if ($member['profile_pic'] == 'Default_Profile_Pic.jpg') { ?>                     
+                    <?php if ($member['profile_pic'] == 'Default.jpg') { ?>                     
                         <p id = 'no_picture_message'>
                             You haven't uploaded a profile picture yet!  You can do so by clicking 
-                            <a href = ''>here</a>
+                            <a href = 'update-picture.php'>here</a>
                             .
                         </p>
                     <?php } else { ?>
-                        <a id = 'update_button' href = 'profile-pic.php'>
+                        <a id = 'update_button' href = 'update-picture.php'>
                             <p>
                                 Update profile picture
                             </p>
@@ -113,7 +119,7 @@ if (!$member) {                                             // If user not found
                         </p>
                     </a>
 
-                    <a id = 'delete' href = 'delete-profile.php'>
+                    <a id = 'delete' href = 'delete-member.php'>
                         <p>
                             Delete profile
                         </p>
