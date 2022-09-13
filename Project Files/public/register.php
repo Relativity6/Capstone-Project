@@ -8,7 +8,7 @@ $member = [
     'lname' => '',
     'email' => '',
     'password' => '',
-    'profile_pic' => 'Default_Profile_Pic.jpg',
+    'profile_pic' => 'Default.jpg',
     'phone_num' => ''
 ];
 
