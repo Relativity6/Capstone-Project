@@ -1,0 +1,183 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
+    background-image: url('../img/irene-irene-iNOgADdc3bc-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+header {
+    box-sizing: border-box;
+    height: 150px;
+    margin: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #71004080;
+    box-shadow: 0px 1px 3px #7e3046;
+}
+
+#header_logo {
+    height: 100px;
+    width: 300px;
+    padding: 0;
+    float: left;
+    position: relative;
+    left: 30px;
+    top: 25px;
+}
+
+#header_nav {
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+    width: 500px;
+    margin: 0;
+    float: right;
+}
+
+#thumbnail {
+    box-sizing: border-box;
+    height: 80px;
+    width: 80px;
+    margin-top: 30px;
+    margin-right: 40px;
+    border-radius: 50%;
+    border: 1px solid #710020;
+    box-shadow: 2px 2px 3px gray;
+    float: right;
+}
+
+#header_nav ul {
+    box-sizing: border-box;
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    bottom: 10px;
+    font-size: 17pt;
+    margin: 0;
+}
+
+#header_nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+#header_nav li a {
+    text-decoration: none;
+    font-weight:500;
+    color: #710040;
+}
+
+#container {
+    box-sizing: border-box;
+    width: 500px;
+    height: auto;
+    min-height: 400px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 3px black;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+#container_header {
+    box-sizing: border-box;
+    width: 500px;
+    height: 60px;
+    padding-top: 5px;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+    border-bottom: 1px solid gray;
+}
+
+#container_header h2 {
+    display: block;
+    margin-top: 10px;
+}
+
+form {
+    box-sizing: border-box;
+    width: 400px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+label {
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    box-sizing: border-box;
+    height: 25px;
+    width: 290px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12pt;
+    font-family: 'raleway', sans-serif;
+    background-color: rgb(230,230,230);
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 3px;
+}
+
+#update_button {
+    display: block;
+    height: 30px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12pt;
+    font-family: 'raleway', sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: #71004030;
+    box-shadow: 1px 1px gray;
+}
+
+#update_button:hover {
+    border: 1px inset gray;
+    box-shadow: 1px 1px inset gray;
+}
+
+#cancel_button {
+    text-decoration: none;
+}
+
+#cancel_button p {
+    box-sizing: border-box;
+    display: block;
+    height: 25px;
+    width: 120px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+    font-size: 11pt;
+    font-family: 'raleway', sans-serif;
+    text-align: center;
+    color: black;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: #71004020;
+    box-shadow: 1px 1px gray;
+}
+
+#cancel_button p:hover {
+    border: 1px inset gray;
+    box-shadow: 1px 1px inset gray;
+}
