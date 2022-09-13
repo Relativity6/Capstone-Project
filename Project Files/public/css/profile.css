@@ -6,6 +6,10 @@ body {
     padding: 0;
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
+    background-image: url('../img/irene-irene-iNOgADdc3bc-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
 #container {
@@ -122,8 +126,8 @@ main {
     min-height: 300px;
     width: 100%;
     margin-bottom: 30px;
-    border: 1px solid gray;
-    box-shadow: 1px 2px 2px gray;
+    border: 1px solid black;
+    box-shadow: 1px 2px 2px black;
     background-color: #FFFFFF;
 }
 
@@ -133,8 +137,8 @@ main {
     min-height: 200px;
     width: 100%;
     margin-bottom: 30px;
-    border: 1px solid gray;
-    box-shadow: 1px 2px 2px gray;
+    border: 1px solid black;
+    box-shadow: 1px 2px 2px black;
     background-color: #FFFFFF;
 }
 
@@ -191,6 +195,32 @@ td {
     background-color: rgb(230,230,230);
 }
 
+#edit_button {
+    text-decoration: none;
+}
+
+#edit_button p {
+    box-sizing: border-box;
+    display: block;
+    height: 40px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    text-align: center;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 1px 2px gray;
+    background-color: #71004020;
+}
+
+#edit_button p:hover {
+    border: 1px inset gray;
+    box-shadow: 1px 1px inset gray;
+}
+
 #profile_picture {
     width: 220px;
     height: auto;
@@ -217,6 +247,7 @@ td {
     border: 1px solid gray;
     border-radius: 5px;
     box-shadow: 1px 2px gray;
+    background-color: #71004020;
 }
 
 #update_button p:hover {
