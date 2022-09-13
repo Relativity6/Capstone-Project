@@ -1,0 +1,227 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
+    background-image: url('../img/irene-irene-iNOgADdc3bc-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+header {
+    box-sizing: border-box;
+    height: 150px;
+    margin: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #71004080;
+    box-shadow: 0px 1px 3px #7e3046;
+}
+
+#header_logo {
+    height: 100px;
+    width: 300px;
+    padding: 0;
+    float: left;
+    position: relative;
+    left: 30px;
+    top: 25px;
+}
+
+#header_nav {
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+    width: 500px;
+    margin: 0;
+    float: right;
+}
+
+#thumbnail {
+    box-sizing: border-box;
+    height: 80px;
+    width: 80px;
+    margin-top: 30px;
+    margin-right: 40px;
+    border-radius: 50%;
+    border: 1px solid #710020;
+    box-shadow: 2px 2px 3px gray;
+    float: right;
+}
+
+#header_nav ul {
+    box-sizing: border-box;
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    bottom: 10px;
+    font-size: 17pt;
+    margin: 0;
+}
+
+#header_nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+#header_nav li a {
+    text-decoration: none;
+    font-weight:500;
+    color: #710040;
+}
+
+#container {
+    box-sizing: border-box;
+    width: 710px;
+    height: auto;
+    min-height: 500px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: #FFFFFF;
+    overflow: auto;
+    box-shadow: 2px 2px 3px black;
+    border-radius: 3px;
+}
+
+#container_header {
+    box-sizing: border-box;
+    width: 690px;
+    height: 60px;
+    text-align: center;
+}
+
+#container_header h2 {
+    margin-top: 15px;
+}
+
+#left_div {
+    box-sizing: border-box;
+    width: 350px;
+    height: auto;
+    min-height: 480px;
+    margin-right: 30px;
+    float: left;
+    background-color: #FFFFFF;
+    border: 1px solid gray;
+    box-shadow: 1px 2px 2px black;
+}
+
+#left_div img {
+    box-sizing: border-box;
+    display: block;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 2px gray;
+    border-radius: 5px;
+}
+
+#left_div p {
+    text-align: center;
+    margin-top: 100px;
+}
+
+h3 {
+    box-sizing: border-box;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    padding-top: 13px;
+    background-color: rgb(240, 240, 240);
+    border-bottom: 1px solid gray;
+}
+
+#right_div {
+    box-sizing: border-box;
+    width: 310px;
+    height: 480px;
+    float: left;
+    background-color: #FFFFFF;
+    border: 1px solid gray;
+    box-shadow: 1px 2px 2px black;
+}
+
+form {
+    margin-top: 80px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 15px;
+    margin-left: 40px;
+}
+
+form input {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+#submit {
+    height: 30px;
+    width: 170px;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12pt;
+    font-family: 'raleway', sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: #71004030;
+    box-shadow: 1px 1px gray;
+}
+
+#submit:hover {
+    border: 1px inset gray;
+    box-shadow: 1px 1px inset gray;
+}
+
+#right_div a {
+    text-decoration: none;
+}
+
+#back_button {
+    box-sizing: border-box;
+    height: 30px;
+    width: 150px;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    text-align: center;
+    color: black;
+    font-size: 11pt;
+    font-family: 'raleway', sans-serif;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: #71004020;
+    box-shadow: 1px 1px gray;
+}
+
+#back_button:hover {
+    border: 1px inset gray;
+    box-shadow: 1px 1px inset gray;
+}
+
+footer {
+    box-sizing: border-box;
+    height: 30px;
+    width: 100%;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    border-top: 3px ridge #71004080;
+    font-size: 11pt;
+    text-align: center;
+}
