@@ -55,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
                 </a>
                 <ul>
-                    <li><a href = 'dashboard.php?id=<?=$id?>'><span>Dashboard</span></a></li>
-                    <li><a href = 'groups.php?id=<?=$id?>'>Groups</a></li>
-                    <li><a href = 'profile.php?id=<?=$id?>'>Profile</a></li>
+                    <li><a href = 'dashboard.php'>Dashboard</a></li>
+                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
         </header>
@@ -85,6 +85,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for = 'delete'>Are you sure you want to delete your <span>LuminHealth</span> account?</label>
                             <input type = 'submit' id = 'delete_button' value = 'Delete'>
                         </form>
+
+                        <a href = 'profile.php' id = 'cancel_button'>
+                            <p>
+                                Cancel
+                            </p>
+                        </a>
                     </div>
                 </div>
             </div>
