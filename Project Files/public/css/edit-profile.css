@@ -73,6 +73,10 @@ header {
     color: #710040;
 }
 
+#header_nav li a:hover {
+    text-shadow: 1px 1px 1px gray;
+}
+
 #container {
     box-sizing: border-box;
     width: 500px;
