@@ -6,7 +6,7 @@ body {
     padding: 0;
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
-    background-image: url('../img/irene-irene-iNOgADdc3bc-unsplash.jpg');
+    background-image: url('../img/profile_bg_2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -71,6 +71,10 @@ header {
     text-decoration: none;
     font-weight:500;
     color: #710040;
+}
+
+#header_nav li a:hover {
+    text-shadow: 1px 1px 1px gray;
 }
 
 #container {
@@ -143,7 +147,7 @@ form {
 label {
     display: block;
     font-size: 14pt;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 span {
@@ -168,6 +172,34 @@ span {
 }
 
 #delete_button:hover {
+    border: 1px inset gray;
+    box-shadow: 1px 1px inset gray;
+}
+
+#cancel_button {
+    text-decoration: none;
+}
+
+#cancel_button p {
+    box-sizing: border-box;
+    display: block;
+    height: 25px;
+    width: 120px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+    font-size: 11pt;
+    font-family: 'raleway', sans-serif;
+    text-align: center;
+    color: black;
+    border-radius: 4px;
+    border: 1px solid gray;
+    background-color: #71004020;
+    box-shadow: 1px 1px gray;
+}
+
+#cancel_button p:hover {
     border: 1px inset gray;
     box-shadow: 1px 1px inset gray;
 }
