@@ -84,9 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
                 </a>
                 <ul>
-                    <li><a href = 'dashboard.php?id=<?=$id?>'><span>Dashboard</span></a></li>
-                    <li><a href = 'groups.php?id=<?=$id?>'>Groups</a></li>
-                    <li><a href = 'profile.php?id=<?=$id?>'>Profile</a></li>
+                    <li><a href = 'dashboard.php'>Dashboard</a></li>
+                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
         </header>
