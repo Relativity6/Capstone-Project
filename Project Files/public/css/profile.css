@@ -6,7 +6,7 @@ body {
     padding: 0;
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
-    background-image: url('../img/irene-irene-iNOgADdc3bc-unsplash.jpg');
+    background-image: url('../img/profile_bg_2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -86,6 +86,10 @@ header {
     color: #710040;
 }
 
+#header_nav li a:hover {
+    text-shadow: 1px 1px 1px gray;
+}
+
 .bold {
     font-weight: 600;
 }
@@ -129,6 +133,7 @@ main {
     border: 1px solid black;
     box-shadow: 1px 2px 2px black;
     background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 #vert_2 .section {
@@ -140,6 +145,7 @@ main {
     border: 1px solid black;
     box-shadow: 1px 2px 2px black;
     background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .section_header {
@@ -147,7 +153,10 @@ main {
     height: 40px;
     width: 100%;
     background-color: rgb(240, 240, 240);
+    background-image: radial-gradient(#FFFFFF,rgb(219, 219, 219));
     border-bottom: 1px solid gray;
+    box-shadow: 0px 1px 1px gray;
+    border-radius: 5px;
 }
 
 .section_header p {
