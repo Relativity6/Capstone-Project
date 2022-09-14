@@ -9,8 +9,8 @@ class Membership
         $this->db = $db;
     }
 
-    // Create new Membership object.  Args array holds [user_id, group_id, role]
-    public function create(array $args): bool
+    // Join a group. Args array holds [user_id, group_id, role]
+    public function joinGroup(array $args): bool
     {
         try {
             $sql = "INSERT INTO membership (user_id, group_id, role)
@@ -93,4 +93,5 @@ class Membership
         $admin = $this->db->runSql($sql, [$group_id]);
         return $admin;
     }
+
 }
