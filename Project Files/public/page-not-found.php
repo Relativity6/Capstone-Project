@@ -40,7 +40,7 @@
                             <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
                         </a>
                         <ul>
-                            <li><a href = 'dashboard.php?id=<?=$session->id?>'><span id = 'current'>Dashboard</span></a></li>
+                            <li><a href = 'dashboard.php'><span id = 'current'>Dashboard</span></a></li>
                             <li><a href = ''>Groups</a></li>
                             <li><a href = 'profile.php'>Profile</a></li>
                         </ul>
