@@ -6,7 +6,7 @@ body {
     padding: 0;
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
-    background-image: url('../img/irene-irene-iNOgADdc3bc-unsplash.jpg');
+    background-image: url('../img/profile_bg_2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -71,6 +71,10 @@ header {
     text-decoration: none;
     font-weight:500;
     color: #710040;
+}
+
+#header_nav li a:hover {
+    text-shadow: 1px 1px 1px gray;
 }
 
 #container {
