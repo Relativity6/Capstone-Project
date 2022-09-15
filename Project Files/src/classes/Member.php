@@ -17,6 +17,15 @@ class Member
         return $this->db->runSQL($sql, [$id])->fetch();
     }
 
+    public function getName(int $id)
+    {
+        $sql = "SELECT fname, lname
+                FROM members
+                WHERE id = :id;";
+        return $this->db->runSql($sql, [$id])->fetch();
+    }
+    
+
     public function create(array $member, string $temporary, string $destination): bool
     {
         $member['password'] = password_hash(($member['password']), PASSWORD_DEFAULT);
@@ -98,6 +107,9 @@ class Member
                 throw new Exception('Unable to delete image or image is missing');
             }
         }
+
+        // Need to delete Membership instances
+        // Need to delete Groups that member is admin of
        
         // Delete member from database
         $sql = 'DELETE FROM members
