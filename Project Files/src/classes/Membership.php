@@ -25,6 +25,17 @@ class Membership
         }
     }
 
+    // Checks if user is in a specific group.
+    // (group.php)
+    public function isMember(int $user_id, int $group_id)
+    {
+        $sql = "SELECT id
+                FROM membership
+                WHERE user_id = :user_id AND group_id = :group_id;";
+
+        return $this->db->runSql($sql, ['user_id' => $user_id, 'group_id' => $group_id])->fetch();
+    }
+
     // Get groups that the user is a member of. Returns array of group ID's or false if no groups are found.
     // (dashboard.php)
     public function memberOf(int $id)
@@ -33,7 +44,7 @@ class Membership
                 FROM membership
                 WHERE user_id = :id AND role = 'member';";
 
-        $groups = $this->db->runSql($sql, [$id]);
+        $groups = $this->db->runSql($sql, [$id])->fetch();
 
         if (!$groups) {
             return false;
@@ -52,7 +63,7 @@ class Membership
                 FROM membership
                 WHERE user_id = :id AND role = 'admin';";
 
-        $groups = $this->db->runSql($sql, [$id]);
+        $groups = $this->db->runSql($sql, [$id])->fetch();
 
         if (!$groups) {
             return false;
@@ -71,7 +82,7 @@ class Membership
                 FROM membership
                 WHERE group_id = :group_id AND role = 'member';";
 
-        $members = $this->db->runSql($sql, [$group_id]);
+        $members = $this->db->runSql($sql, [$group_id])->fetchAll();
 
         if (!$members) {
             return false;
@@ -90,7 +101,7 @@ class Membership
                 FROM membership
                 WHERE group_id = :group_id AND role = 'admin';";
 
-        $admin = $this->db->runSql($sql, [$group_id]);
+        $admin = $this->db->runSql($sql, [$group_id])->fetch();
         return $admin;
     }
 
