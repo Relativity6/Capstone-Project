@@ -8,41 +8,29 @@ if (!$id) {
     redirect('login.php');
 }
 
-//If no user is found with ID, redirect to page-not-found
+// If no user is found with ID, redirect to page-not-found
 $member = $cms->getMember()->get($id);
 if (!$member) {
     redirect('page-not-found.php');
 }
 
-$error = '';
+$member_of = $cms->getMembership()->memberof($id);
+$admin_of = $cms->getMembership()->adminof($id);
 
-// If Delete button was pressed
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $result = $cms->getMember()->deleteMember($id, $member['profile_pic']);
-    
-    if ($result === false) {
-        $error = 'Sorry, there was an error while carrying out your request.';
-    }
-
-    else {
-        $cms->getSession()->delete();
-        redirect('login.php');
-    }
-}
 ?>
 
 <!DOCTYPE html>
 <html lang = 'en'>
     <head>
         <title>
-            LuminHealth | Delete Profile
+            LuminHealth | Dashboard
         </title>
         <meta charset = 'utf-8'>
         <meta name = 'description' content = ''>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-        <link rel = 'stylesheet' href = 'css/delete-member.css'>
+        <link rel = 'stylesheet' href = 'css/dashboard.css'>
     </head>
     <body>
         <header>
@@ -55,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
                 </a>
                 <ul>
-                    <li><a href = 'dashboard.php'>Dashboard</a></li>
+                    <li><a href = 'dashboard.php'><span class = 'bold'>Dashboard</span></a></li>
                     <li><a href = 'groups.php'>Groups</a></li>
                     <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
@@ -63,37 +51,120 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </header>
         <main>
             <div id = 'container'>
-                <div id = 'container_header'>
-                    <h2>
-                        Delete Member Profile
-                    </h2>
-                </div>
-                <div id = 'info_div'>
-                    <div id = 'left_div'>
-                        <img src = 'uploads/<?=$member['profile_pic']?>' alt = 'Profile picture'>
+                <div id = 'left_column'>
+                    <div class = 'section_left' id = 'welcome_msg'>
+                        <h2>
+                            Welcome, <?= $member['fname'] ?>!
+                        </h2>
                     </div>
-                    <div id = 'right_div'>
-                        <form action = 'delete-member.php' method = 'POST'>
 
-                            <!-- If there is an error message -->
-                            <?php if ($error) { ?>
-                                <p class = 'error_msg'>
-                                    <?= $error ?>
-                                </p>
-                            <?php } ?>
-
-                            <label for = 'delete'>Are you sure you want to delete your <span>LuminHealth</span> account?</label>
-                            <input type = 'submit' id = 'delete_button' value = 'Delete'>
-                        </form>
-
-                        <a href = 'profile.php' id = 'cancel_button'>
+                    <!-- Group List section -->
+                    <div class = 'section_left' id = 'group_list'>
+                        <div class = 'section_header'>
                             <p>
-                                Cancel
+                                Group List
+                            </p>
+                        </div>
+
+                        <!-- Make a table only if user is a part of atleast one group -->
+                        <?php if ($member_of || $admin_of) { ?>
+                        <table>
+                            <tr>
+                                <th>Group name</th>
+                                <th>Number of members</th>
+                                <th>Role</th>
+                            </tr>
+                            
+                            <!-- Print admin'ed groups first -->
+                            <?php if ($admin_of) {
+                                    foreach($admin_of as $group) {
+                                        $group_info = $cms->getGroup()->get($group);
+                                        $members = $cms->getMembership()->getNumberOfMembers($group); ?>
+                                    <tr>
+                                        <td>
+                                            <a href = "group.php?group_id=<?=$group?>">
+                                                <?= $group_info['name'] ?>
+                                            </a>
+                                        </td>
+                                        <td><?= $members ?></td>
+                                        <td>Admin</td>
+                                    </tr>
+                            <?php } } ?>
+
+                            <!-- Print other groups -->
+                            <?php if ($member_of) {
+                                foreach($member_of as $group) {
+                                    $group_info = $cms->getGroup()->get($group);
+                                    $members = $cms->getMembership()->getNumberOfMembers($group); ?>  
+                                    <tr>
+                                        <td>
+                                            <a href = "group.php?group_id=<?=$group?>">
+                                                <?= $group_info['name'] ?>
+                                            </a>
+                                        </td>
+                                        <td><?= $members ?></td>
+                                        <td>Member</td>
+                                    </tr>
+                            <?php } } ?>
+                        </table>
+
+                        <!-- If user is not in any groups yet -->
+                        <?php } else { ?>              
+                            <p id = 'no_groups_msg'>
+                                You haven't joined any groups yet!
+                            </p>
+                        <?php } ?>
+                    </div>
+
+                    <div class = 'section_left' id = 'empty_section'>
+                        <div class = 'section_header'>
+                            <p>
+                                Empty Section (Idk what to add here but there was space for it)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id = 'right_column'>
+                    <div class = 'section_right' id = 'alert_section'>
+                        <p class = 'bold'>
+                            Had a positive test?
+                        </p>
+                        <p>
+                            Alert your group members by clicking the button below.
+                        </p>
+                        <a href = '' id = 'alert_button'>
+                            <p>
+                                Alert
                             </p>
                         </a>
+                    </div>
+
+                    <div class = 'section_right' id = 'docfinder'>
+                        <p class = 'bold'>
+                            DocFinder
+                        </p>
+                        <p id = 'docfinder_prompt'>
+                            Click the button below to find a doctor near you.
+                        </p>
+                        <a href = '' id = 'docfinder_button'>
+                            <p>
+                                Find doctor
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class = 'section_right' id = 'twitter_feed'>
+                        <div class = 'section_header'>
+                            <p>
+                                CDC Twitter Feed
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
+        <footer>
+            Copyright &copy; 2022 Luminhealth
+        </footer>
     </body>
-</html>
