@@ -21,7 +21,7 @@ Page: group.php
 Summary: This page provides group details for the group whose ID is in the query string. If the user is not a member, it provides a password input field to join. If the user is a member, it displays group details.  
 Screenshots:  
 ![SS14 - Group page nonmember](https://user-images.githubusercontent.com/40231621/190318431-ea457fb4-d6a0-40c1-9a88-2a3756d426f8.jpg)  
-![SS13 - Group page Member](https://user-images.githubusercontent.com/40231621/190318451-a9a9e851-fcff-4cf4-ad34-b97aaf584f59.jpg)  
+![SS13 - Group page Member](https://user-images.githubusercontent.com/40231621/191601640-a0061e15-7b91-4097-b8bf-05375a181eb0.jpg)  
 
 Page: profile.php  
 Summary: Users may see their profile information on this page. If a user attempts to view this page without being logged in, they are redirected to login.php.  
