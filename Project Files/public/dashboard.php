@@ -79,16 +79,14 @@ $admin_of = $cms->getMembership()->adminof($id);
                             <!-- Print admin'ed groups first -->
                             <?php if ($admin_of) {
                                     foreach($admin_of as $group) {
-                                        $group_info = $cms->getGroup()->get((int)$group);
-                                        $members = $cms->getMembership()->getNumberOfMembers((int)$group); ?>
+                                        $group_info = $cms->getGroup()->get((int)$group['group_id']);
+                                        $members = $cms->getMembership()->getNumberOfMembers((int)$group['group_id']); ?>
                                     <tr>
-                                        <td>
-                                            <?=$group_info['name']?>
-                                        </td>
+                                        <td><?=$group_info['name']?></td>
                                         <td><?= $members ?></td>
                                         <td>Admin</td>
                                         <td>
-                                            <a id = 'go_button' href = 'group.php?group_id=<?=$group?>'>
+                                            <a id = 'go_button' href = 'group.php?group_id=<?=$group['group_id']?>'>
                                                 <p>
                                                     Go
                                                 </p>
@@ -100,16 +98,14 @@ $admin_of = $cms->getMembership()->adminof($id);
                             <!-- Print other groups -->
                             <?php if ($member_of) {
                                 foreach($member_of as $group) {
-                                    $group_info = $cms->getGroup()->get((int)$group);
-                                    $members = $cms->getMembership()->getNumberOfMembers((int)$group); ?>  
+                                    $group_info = $cms->getGroup()->get((int)$group['group_id']);
+                                    $members = $cms->getMembership()->getNumberOfMembers((int)$group['group_id']); ?>  
                                     <tr>
-                                        <td>
-                                            <?=$group_info['name']?>
-                                        </td>
-                                        <td><?= $members ?></td>
+                                        <td><?=$group_info['name']?></td>
+                                        <td><?=$members?></td>
                                         <td>Member</td>
                                         <td>
-                                            <a id = 'go_button' href = 'group.php?group_id=<?=$group?>'>
+                                            <a id = 'go_button' href = 'group.php?group_id=<?=$group['group_id']?>'>
                                                 <p>
                                                     Go
                                                 </p>
