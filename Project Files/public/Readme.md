@@ -15,7 +15,7 @@ Screenshot:
 Page: Dashboard.php  
 Summary: Main navigation hub of the site. CDC Twitter feed.  
 Screenshot:  
-![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/190037807-424bd02f-202c-49c6-81d5-e93ce3234ca5.jpg)  
+![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/191601411-dce7194b-4740-4fbe-9d32-2656982cc749.jpg)  
 
 Page: group.php  
 Summary: This page provides group details for the group whose ID is in the query string. If the user is not a member, it provides a password input field to join. If the user is a member, it displays group details.  
