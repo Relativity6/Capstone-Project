@@ -27,8 +27,9 @@ $isMember = $cms->getMembership()->isMember($id, $group_id);
 
 // If member, retrieve group info
 if ($isMember) {
-    $admin = $cms->getMember()->getName($group['admin_id']);
-    $groupMembers = $cms->getMembership()->getMembers($group_id);
+    $isAdmin = ($id == $group['admin_id']) ? true : false;
+    $admin_info = $cms->getMember()->get((int)$group['admin_id']);
+    $groupMembers = $cms->getMembership()->getMembers((int)$group_id);
 }
 
 // If not member
@@ -133,63 +134,43 @@ else {
                     <div id = 'column_left'>
                         <div id = 'header_div'>
                             <div class = 'section_header'>
-                                <p>
-                                    Group Name
-                                </p>
+                                <p>Group Name</p>
                             </div>
-                            <p>
-                                <?= $group['name'] ?>
-                            </p>
+                            <p><?= $group['name'] ?></p>
                         </div>
 
                         <div id = 'member_list'>
                             <div class = 'section_header'>
-                                <p>
-                                    Member List
-                                </p>
+                                <p>Member List</p>
                             </div>
                             <table>
                                 <tr>
-                                    <th>
-                                        First name
-                                    </th>
-                                    <th>
-                                        Last name
-                                    </th>
-                                    <th>
-                                        Role
-                                    </th>
+                                    <th>Picture</th>
+                                    <th>Name</th>
+                                    <th>Role</th>
                                 </tr>
 
                                 <!-- Table row for admin -->
                                 <tr>
                                     <td>
-                                        <?= $admin['fname'] ?>
+                                        <img id = 'mini_thumbnail' src = 'uploads/<?=$admin_info['profile_pic']?>'> 
                                     </td>
-                                    <td>
-                                        <?= $admin['lname'] ?>
-                                    </td>
-                                    <td>
-                                        Admin
-                                    </td>
+                                    <td><?=$admin_info['fname']?> <?=$admin_info['lname']?></td>
+                                    <td>Admin</td>
                                 </tr>
 
                                 <!-- Add table row for each member -->
-                                <?php foreach ($groupMembers as $member) { 
-                                    $name = $cms->getMember()->getName($member['user_id'])                              
-                                ?>
-                                    <tr>
-                                        <td>
-                                            <?= $name['fname'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $name['lname'] ?>
-                                        </td>
-                                        <td>
-                                            Member
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                <?php 
+                                    if ($groupMembers) {
+                                        foreach ($groupMembers as $mem) { 
+                                            $member_info = $cms->getMember()->get((int)$mem['user_id']) ?>
+                                            <tr>
+                                                <td><img id = 'mini_thumbnail' src = 'uploads/<?=$member_info['profile_pic']?>'></td>
+                                                <td><?= $member_info['fname'] ?> <?= $member_info['lname'] ?></td>
+                                                <td>Member</td>
+                                            </tr>
+                                <?php   }
+                                    } ?>
                             </table>
                         </div>
                     </div>
@@ -207,17 +188,35 @@ else {
                                 </p>
                             </a>
                         </div>
-                        <div id = 'leave_section'>
+                        <div id = 'options_section'>
                             <div class = 'section_header'>
                                 <p>
                                     Group Options
                                 </p>
                             </div>
-                            <a href = '' id = 'leave_button'>
-                                <p>
-                                    Leave group
-                                </p>
-                            </a>
+
+                            <?php
+                                if ($isAdmin) { ?>
+                                    <a href = 'edit-group.php?group_id=<?=$group_id?>' id = 'edit_button'>
+                                        <p>
+                                            Edit group
+                                        </p>
+                                    </a>
+
+                                    <a href = '' id = 'delete_button'>
+                                        <p>
+                                            Delete group
+                                        </p>
+                                    </a>
+                            <?php 
+                                } else { ?>
+                                    <a href = '' id = 'leave_button'>
+                                        <p>
+                                            Leave group
+                                        </p>
+                                    </a>
+                            <?php
+                                } ?>
                         </div>
                     </div>
                 </div>
