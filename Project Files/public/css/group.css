@@ -89,6 +89,7 @@ header {
     overflow: auto;
     border-radius: 5px;
     background-color: #FFFFFF;
+    box-shadow: 2px 2px 2px black;
 }
 
 #container_nonmember img {
@@ -213,7 +214,7 @@ table {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px dotted black;
+    border: 1px solid black;
     border-collapse: collapse;
     box-shadow: 1px 2px 2px gray;
 }
@@ -232,17 +233,29 @@ tr:nth-of-type(even) {
 
 td {
     box-sizing: border-box;
-    height: 35px;
-    border: 1px solid black;
+    height: 60px;
+    text-align: center;
     padding-left: 10px;
 }
 
 td:nth-of-type(3) {
     padding-left: 0px;
-    text-align: center;
+    
 }
 
-#container_member #alert_section {
+#mini_thumbnail {
+    box-sizing: border-box;
+    display: block;
+    height: 46px;
+    width: 46px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    border: 1px solid #710020;
+    box-shadow: 2px 2px 3px gray;
+}
+
+#alert_section {
     box-sizing: border-box;
     height: 200px;
     width: 300px;
@@ -257,7 +270,7 @@ td:nth-of-type(3) {
     box-shadow: 1px 2px 2px black;
 }
 
-#container_member #alert_prompt1 {
+#alert_prompt1 {
     margin: 0px;
     text-align: center;
     font-size: 14pt;
@@ -265,15 +278,15 @@ td:nth-of-type(3) {
     font-weight: 600;
 }
 
-#container_member #alert_prompt2 {
+#alert_prompt2 {
     text-align: center;
 }
 
-#container_member #alert_button {
+#alert_button {
     text-decoration: none;
 }
 
-#container_member #alert_button p {
+#alert_button p {
     box-sizing: border-box;
     width: 150px;
     height: 35px;
@@ -291,11 +304,11 @@ td:nth-of-type(3) {
 }
 
 #alert_button p:hover {
-    border: 1px inset gray;
+    border: 1px inset black;
     box-shadow: 1px 1px inset gray;
 }
 
-#container_member #leave_section {
+#options_section {
     box-sizing: border-box;
     height: auto;
     min-height: 130px;
@@ -305,13 +318,66 @@ td:nth-of-type(3) {
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 1px 2px 2px black;
+    overflow: auto;
 }
 
-#container_member #leave_section #leave_button {
+#options_section #edit_button {
     text-decoration: none;
 }
 
-#container_member #leave_section #leave_button p {
+#options_section #edit_button p {
+    box-sizing: border-box;
+    display: block;
+    width: 150px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 4px;
+    font-size: 14pt;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px black;
+    background-color: #ff898990;
+}
+
+#options_section #edit_button p:hover {
+    border: 1px inset black;
+    box-shadow: 1px 1px inset black;
+}
+
+#options_section #delete_button {
+    text-decoration: none;
+}
+
+#options_section #delete_button p {
+    box-sizing: border-box;
+    display: block;
+    width: 130px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 7px;
+    font-size: 12pt;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px black;
+    background-color: #caa1ba90;
+}
+
+#options_section #delete_button p:hover {
+    border: 1px inset black;
+    box-shadow: 1px 1px inset black;
+}
+
+#options_section #leave_button {
+    text-decoration: none;
+}
+
+#options_section #leave_button p {
     box-sizing: border-box;
     display: block;
     width: 150px;
