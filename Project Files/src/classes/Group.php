@@ -18,6 +18,15 @@ class Group
         return $this->db->runSQL($sql, [$id])->fetch();
     }
 
+    public function getByGroupName(string $group_name)
+    {
+        $sql = "SELECT id, name, password, admin_id
+                FROM groups
+                WHERE name = :name;";
+
+        return $this->db->runSql($sql, [$group_name])->fetch();
+    }
+
     // Create new group. Args array holds [name, password, admin_id]
     // Returns true if new group created. Returns false if uniqueness constraint violated
     public function create(array $args): bool
