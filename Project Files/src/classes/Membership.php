@@ -44,7 +44,7 @@ class Membership
                 FROM membership
                 WHERE user_id = :id AND role = 'member';";
 
-        $groups = $this->db->runSql($sql, [$id])->fetch();
+        $groups = $this->db->runSql($sql, [$id])->fetchAll();
 
         if (!$groups) {
             return false;
@@ -63,7 +63,7 @@ class Membership
                 FROM membership
                 WHERE user_id = :id AND role = 'admin';";
 
-        $groups = $this->db->runSql($sql, [$id])->fetch();
+        $groups = $this->db->runSql($sql, [$id])->fetchAll();
 
         if (!$groups) {
             return false;
@@ -93,6 +93,22 @@ class Membership
         }
     }
 
+    public function getNumberOfMembers(int $group_id): int
+    {
+        $sql = "SELECT user_id
+                FROM membership
+                WHERE group_id = :group_id AND (role = 'member' OR role = 'admin');";
+        
+        $members = $this->db->runSql($sql, [$group_id])->fetchAll();
+        
+        if (!$members) {
+            return 0;
+        }
+        else {
+            return sizeof($members);
+        }
+    }
+
     // Get admin of a group. Returns User ID of admin.
     // (group.php)
     public function getAdmin(int $group_id)
@@ -103,6 +119,24 @@ class Membership
 
         $admin = $this->db->runSql($sql, [$group_id])->fetch();
         return $admin;
+    }
+
+    // Remove a member from a group
+    public function removeMember(int $member_id, int $group_id): bool
+    {
+        $sql = "DELETE
+                FROM membership
+                WHERE user_id = :user_id AND group_id = :group_id;";
+        
+        try {
+            $this->db->runsql($sql, ['user_id' => $member_id, 'group_id' => $group_id]);
+            return true;
+        }
+
+        catch(PDOException $e) {
+            throw $e;
+            return false;
+        }
     }
 
 }
