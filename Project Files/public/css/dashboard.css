@@ -155,11 +155,11 @@ header {
 }
 
 table {
-    width: 540px;
+    width: 580px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px dotted black;
+    border: 1px solid black;
     border-collapse: collapse;
     box-shadow: 1px 2px 2px gray;
     text-align: center;
@@ -179,14 +179,39 @@ tr:nth-of-type(even) {
 
 td {
     box-sizing: border-box;
-    height: 35px;
-    border: 1px solid black;
-    padding-left: 10px;
+    height: 60px;
+    /* border: 1px solid black; */
 }
 
-td:nth-of-type(3) {
-    padding-left: 0px;
+td:nth-of-type(4) {
+    width: 100px;
+}
+
+table a {
+    text-decoration: none;
+}
+
+#go_button p {
+    box-sizing: border-box;
+    width: 50px;
+    height: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+    font-size: 10pt;
     text-align: center;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px black;
+    background-color: #e6c1d8;
+}
+
+#go_button p:hover {
+    border: 1px inset black;
+    box-shadow: 1px 1px inset black;
 }
 
 #no_groups_msg {
@@ -235,15 +260,15 @@ td:nth-of-type(3) {
     font-size: 14pt;
     text-align: center;
     color: black;
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 1px 2px gray;
+    box-shadow: 1px 2px black;
     background-color: #ff8989;
 }
 
 #alert_button p:hover {
-    border: 1px inset gray;
-    box-shadow: 1px 1px inset gray;
+    border: 1px inset black;
+    box-shadow: 1px 1px inset black;
 }
 
 #docfinder {
@@ -275,15 +300,15 @@ td:nth-of-type(3) {
     margin-right: auto;
     padding-top: 5px;
     color: black;
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 1px 2px gray;
+    box-shadow: 1px 2px black;
     background-color: #71004040;
 }
 
 #docfinder_button p:hover {
-    border: 1px inset gray;
-    box-shadow: 1px 1px inset gray;
+    border: 1px inset black;
+    box-shadow: 1px 1px inset black;
 }
 
 #twitter_feed {
