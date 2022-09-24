@@ -35,7 +35,7 @@ header {
     box-sizing: border-box;
     position: relative;
     height: 150px;
-    width: 500px;
+    width: 600px;
     margin: 0;
     float: right;
 }
@@ -55,7 +55,7 @@ header {
 #header_nav ul {
     box-sizing: border-box;
     height: 80px;
-    width: 400px;
+    width: 500px;
     position: absolute;
     bottom: 10px;
     font-size: 17pt;
@@ -75,6 +75,15 @@ header {
 
 #header_nav li a:hover {
     text-shadow: 1px 1px 1px gray;
+}
+
+.current {
+    font-weight: 600;
+    color: #710040;
+}
+
+.current:hover {
+    text-shadow: none;
 }
 
 /* ----------- Not member ------------ */
@@ -322,6 +331,10 @@ td:nth-of-type(3) {
 }
 
 #options_section #edit_button {
+    display: block;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
     text-decoration: none;
 }
 
@@ -348,6 +361,10 @@ td:nth-of-type(3) {
 }
 
 #options_section #delete_button {
+    display: block;
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
     text-decoration: none;
 }
 
@@ -374,6 +391,10 @@ td:nth-of-type(3) {
 }
 
 #options_section #leave_button {
+    display: block;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
     text-decoration: none;
 }
 
@@ -388,13 +409,13 @@ td:nth-of-type(3) {
     font-size: 14pt;
     text-align: center;
     color: black;
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 1px 2px gray;
+    box-shadow: 1px 2px black;
     background-color: #ff898990;
 }
 
-#leave_button p:hover {
+#options_section #leave_button p:hover {
     border: 1px inset black;
     box-shadow: 1px 1px inset black;
 }
