@@ -38,8 +38,8 @@ if (!$member) {                                             // If user not found
                 </a>
                 <ul>
                     <li><a href = 'dashboard.php'>Dashboard</a></li>
-                    <li><a href = 'groups.php'>Groups</a></li>
-                    <li><a href = 'profile.php'><span class = 'bold'>Profile</span></a></li>
+                    <li><a href = 'group-search.php'>Group Search</a></li>
+                    <li><span class = 'current'>Profile</span></li>
                 </ul>
             </nav>
         </header>
