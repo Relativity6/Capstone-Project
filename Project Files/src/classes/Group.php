@@ -49,4 +49,20 @@ class Group
             throw $e;
         }
     }
+
+    public function delete(int $id)
+    {
+        
+        try {
+            $sql = "DELETE FROM groups
+                    WHERE id = :id;";
+            $this->db->runSql($sql, [$id]);
+            return true;
+        }
+
+        catch(PDOException $e) {
+            throw $e;
+            return false;
+        }
+    }
 }
