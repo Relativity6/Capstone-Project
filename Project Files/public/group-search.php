@@ -2,13 +2,6 @@
 declare(strict_types = 1);
 include '../src/bootstrap.php';
 
-$group = [
-    'id' => '',
-    'name' => '',
-    'password' => '',
-    'admin_id' => ''
-];
-
 // If the user is not logged in, redirect to login
 $id = (int) $_SESSION['id'];
 if (!$id) {
@@ -23,18 +16,17 @@ if (!$member) {
 
 $error = '';
 
-// If Delete button was pressed
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
 
-    $group = $cms->getGroup()->getID($name);
+    $group = $cms->getGroup()->getByGroupName($name);
     
     if (!$group){
         $error = 'No group found with that name';
     }
 
-    else{
-        redirect('group.php?group_id='.$group['id']);
+    else {
+        redirect('group.php', ['group_id' => $group['id']]);
     }
 }
 ?>
@@ -64,44 +56,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </a>
                 <ul>
                     <li><a href = 'dashboard.php'>Dashboard</a></li>
-                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><a href = 'group-search.php'><span class = 'current'>Group Search</span></a></li>
                     <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
         </header>
         <main>
             <div id = 'container'>
-                <div id = 'container_header'>
-                    <h2>
-                        Group Search
-                    </h2>
-                </div>
-                <div id = 'info_div'>
-                    <form action = 'group-search.php' method = 'POST'>
+                <img id = 'left_img' src = 'img/search.jpg' >
 
-                        <!-- If there is an error message -->
-                        <?php if ($error) { ?>
-                            <p class = 'error_msg'>
-                                <?= $error ?>
-                            </p>
-                        <?php } ?>
-
-                    <!-- Group Name -->
-                    <label for = 'name'>Group name:</label>
-                    <input type = 'text' name = 'name'>
-                            <!-- update css submit_button to search_button-->
-                        <label for = 'search'>Search for a <span>LuminHealth</span> group?</label>
-                        <input type = 'submit' id = 'search_button' value = 'Search'>
-                    </form>
-
-                    <a href = 'profile.php' id = 'cancel_button'>
+                <div id = 'content'>
+                    <div class = 'section_header'>
                         <p>
-                            Cancel
+                            Group Search
                         </p>
-                    </a>
-                    
+                    </div>
+                    <p id = 'search_prompt'>
+                        Enter the name of the group you wish to join below.
+                    </p>
+                    <div id = 'form_div'>
+                        <form action = 'group-search.php' method = 'POST'>
+
+                            <!-- Group Name -->
+                            <label for = 'name'>Group name:</label>
+                            <input type = 'text' name = 'name'>
+
+                            <!-- If there is an error message -->
+                            <?php if ($error) { ?>
+                                <p class = 'error'>
+                                    <?= $error ?>
+                                </p>
+                            <?php } ?>
+
+                            <input type = 'submit' id = 'search_button' value = 'Search'>
+                        </form>
+
+                        <a href = 'dashboard.php' id = 'cancel_button'>
+                            <p>
+                                Cancel
+                            </p>
+                        </a>     
+                    </div>
                 </div>
             </div>
         </main>
+        <footer>
+            Copyright &copy; 2022 Luminhealth
+        </footer>
     </body>
 </html>
