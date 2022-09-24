@@ -1,6 +1,8 @@
 <?php
     declare(strict_types = 1);
     include '../src/bootstrap.php';
+
+    $session_id = (isset($_SESSION['id'])) ? $_SESSION['id'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@
                     <img id = 'header_logo' src = 'img/logo2_transparent.png' alt = 'LuminHealth logo'>
                 </a>
 
-                <?php if ($session->id == 0) { ?>
+                <?php if (!$session_id) { ?>
                         
                     <nav id = 'header_nav'>
                         <ul class = 'not_logged_in'>
@@ -40,8 +42,8 @@
                             <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
                         </a>
                         <ul>
-                            <li><a href = 'dashboard.php'><span id = 'current'>Dashboard</span></a></li>
-                            <li><a href = ''>Groups</a></li>
+                            <li><a href = 'dashboard.php'>Dashboard</a></li>
+                            <li><a href = 'group-search.php'>Group Search</a></li>
                             <li><a href = 'profile.php'>Profile</a></li>
                         </ul>
                     </nav>
@@ -50,7 +52,7 @@
             </header>
             <main>
                 <div id = 'content'>
-                    <img id = '' src = 'img/page-not-found.jpg' alt = 'Page not found.'>
+                    <img src = 'img/page-not-found.jpg' alt = 'Page not found.'>
 
                     <div>
                         <h1>
@@ -58,7 +60,7 @@
                         </h1>
 
                         <h3>
-                            Something went wrong.  Click <a href = ''>here</a> to go back.
+                            Something went wrong.  Click <a href = 'dashboard.php'>here</a> to go back.
                         </h3>
                     </div>
                 </div>
