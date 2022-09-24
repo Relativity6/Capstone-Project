@@ -100,12 +100,18 @@ form label {
     font-size: 12pt;
     font-family: 'raleway', sans-serif;
     font-weight: 500;
-    border-radius: 4px;
-    border: 1px solid gray;
     background-color: #71004030;
     position: absolute;
     bottom: 20px;
     right: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px black;
+}
+
+#submit:hover {
+    border: 1px inset black;
+    box-shadow: 1px 1px inset black;
 }
 
 .warning {
@@ -117,4 +123,18 @@ form label {
 h3.warning {
     font-size: 13pt;
     margin-top: 0px;
+}
+
+footer {
+    box-sizing: border-box;
+    height: 30px;
+    width: 100%;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    background-image: radial-gradient(#FFFFFF,rgb(196, 196, 196));
+    border-top: 3px ridge #71004080;
+    font-size: 11pt;
+    text-align: center;
 }
