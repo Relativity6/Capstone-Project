@@ -93,55 +93,84 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <link rel = 'stylesheet' href = 'css/new-group.css'>
     </head>
     <body>
-        <div id = 'container'>
-            <img id = 'hero_image' src = '' alt = ''/>
+        <header>
+            <a href = 'dashboard.php'>
+                <img id = 'header_logo' src = 'img/logo2_transparent.png' alt = 'LuminHealth logo'>
+            </a>
 
-            <div id = 'content'>
-                <img id = 'logo' src = 'img/logo2_transparent.png' alt = 'LuminHealth logo'>
+            <nav id = 'header_nav'>
+                <a href = 'profile.php'>
+                    <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
+                </a>
+                <ul>
+                    <li><a href = 'dashboard.php'>Dashboard</a></li>
+                    <li><a href = 'group-search.php'>Group Search</a></li>
+                    <li><a href = 'profile.php'>Profile</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div id = 'container'>
+                <img id = 'hero_image' src = 'img/group.jpg'/>
 
-                <h1>Create a group</h1>
+                <div id = 'content'>
+                    <div class = 'section_header'>
+                        <p>
+                            Create a Group
+                        </p>
+                    </div>
 
-                <div id = 'form_div'>
-                    <form action = 'new-group.php' method = 'POST'>
+                    <div id = 'form_div'>
+                        <form action = 'new-group.php' method = 'POST'>
 
-                        <!-- Error prompt -->
-                        <?php if (implode($errors)) { ?>
-                            <h3 class = 'warning'>
-                                Please correct the errors below.
-                            </h3>
-                        <?php } ?>
+                            <!-- Error prompt -->
+                            <?php if (implode($errors)) { ?>
+                                <h3 class = 'warning'>
+                                    Please correct the errors below.
+                                </h3>
+                            <?php } ?>
 
-                        <!-- Group name -->
-                        <label for = 'name'>Group name:</label>
-                        <input type = 'text' name = 'name'>
-                        <?php if ($errors['name']) {?>
-                                <p class = 'warning'>
-                                    <?= $errors['name'] ?>
-                                </p>
-                        <?php } ?>
+                            <!-- Group name -->
+                            <label for = 'name'>Group name:</label>
+                            <input type = 'text' name = 'name'>
+                            <?php if ($errors['name']) {?>
+                                    <p class = 'warning'>
+                                        <?= $errors['name'] ?>
+                                    </p>
+                            <?php } ?>
 
-                        <!-- Password -->
-                        <label for = 'password'>Password:</label>
-                        <input type = 'password' name = 'password'>
-                        <?php if ($errors['password']) {?>
-                                <p class = 'warning'>
-                                    <?= $errors['password'] ?>
-                                </p>
-                        <?php } ?>
+                            <!-- Password -->
+                            <label for = 'password'>Password:</label>
+                            <input type = 'password' name = 'password'>
+                            <?php if ($errors['password']) {?>
+                                    <p class = 'warning'>
+                                        <?= $errors['password'] ?>
+                                    </p>
+                            <?php } ?>
 
-                        <!-- Confirm password -->
-                        <label for = 'confirm'>Confirm password:</label>
-                        <input type = 'password' name = 'confirm'>
-                        <?php if ($errors['confirm']) {?>
-                                <p class = 'warning'>
-                                    <?= $errors['confirm'] ?>
-                                </p>
-                        <?php } ?>
+                            <!-- Confirm password -->
+                            <label for = 'confirm'>Confirm password:</label>
+                            <input type = 'password' name = 'confirm'>
+                            <?php if ($errors['confirm']) {?>
+                                    <p class = 'warning'>
+                                        <?= $errors['confirm'] ?>
+                                    </p>
+                            <?php } ?>
 
-                        <input type = 'submit' id = 'create_button' value = 'Create group'>
-                    </form>
+                            <input type = 'submit' id = 'create_button' value = 'Create group'>
+                        </form>
+
+                        <a id = 'cancel_button' href = 'dashboard.php'>
+                            <p>
+                                Cancel
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <footer>
+            Copyright &copy; 2022 Luminhealth
+        </footer>
     </body>
 </html>
