@@ -35,7 +35,7 @@ header {
     box-sizing: border-box;
     position: relative;
     height: 150px;
-    width: 500px;
+    width: 600px;
     margin: 0;
     float: right;
 }
@@ -55,7 +55,7 @@ header {
 #header_nav ul {
     box-sizing: border-box;
     height: 80px;
-    width: 400px;
+    width: 500px;
     position: absolute;
     bottom: 10px;
     font-size: 17pt;
@@ -75,6 +75,15 @@ header {
 
 #header_nav li a:hover {
     text-shadow: 1px 1px 1px gray;
+}
+
+.current {
+    font-weight: 600;
+    color: #710040;
+}
+
+.current:hover {
+    text-shadow: none;
 }
 
 #container {
@@ -106,6 +115,26 @@ header {
     margin-top: 0;
 }
 
+.section_header {
+    box-sizing: border-box;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    background-image: radial-gradient(#FFFFFF,rgb(219, 219, 219));
+    border-bottom: 1px solid gray;
+    box-shadow: 0px 1px 1px gray;
+    border-radius: 5px;
+}
+
+.section_header p {
+    box-sizing: border-box;
+    margin-top: 0px;
+    padding-top: 17px;
+    font-size: 16pt;
+    font-weight: 600;
+    text-align: center;
+}
+
 #info_div {
     box-sizing: border-box;
     display: block;
@@ -127,6 +156,7 @@ header {
     height: 180px;
     width: auto;
     display: block;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -162,13 +192,13 @@ span {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 12pt;
+    font-size: 13pt;
     font-family: 'raleway', sans-serif;
     font-weight: 500;
     border-radius: 4px;
-    border: 1px solid gray;
+    border: 1px solid black;
     background-color: #71004030;
-    box-shadow: 1px 1px gray;
+    box-shadow: 1px 1px black;
 }
 
 #delete_button:hover {
@@ -177,7 +207,12 @@ span {
 }
 
 #cancel_button {
+    display: block;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
     text-decoration: none;
+
 }
 
 #cancel_button p {
@@ -194,9 +229,9 @@ span {
     text-align: center;
     color: black;
     border-radius: 4px;
-    border: 1px solid gray;
+    border: 1px solid black;
     background-color: #71004020;
-    box-shadow: 1px 1px gray;
+    box-shadow: 1px 1px black;
 }
 
 #cancel_button p:hover {
@@ -207,4 +242,18 @@ span {
 .error {
     color: red;
     font-size: 11pt;
+}
+
+footer {
+    box-sizing: border-box;
+    height: 30px;
+    width: 100%;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    background-image: radial-gradient(#FFFFFF,rgb(196, 196, 196));
+    border-top: 3px ridge #71004080;
+    font-size: 11pt;
+    text-align: center;
 }
