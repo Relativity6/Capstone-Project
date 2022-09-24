@@ -38,6 +38,7 @@ Screenshot:
 ![SS11 - Delete profile](https://user-images.githubusercontent.com/40231621/192077903-f529bf71-9548-4d22-818e-bb3bb28ecdf1.jpg)  
 
 Page: group.php  
+Required in query string: group_id  
 Summary: This page provides group details for the group whose ID is in the query string. If the user is not a member, it provides a password input field to join. If the user is a member, it displays group details and a link to leave-group.php.  If the user is the admin of the group, it displays group details and links to edit-group.php and delete-group.php.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshots:  
 ![SS14 - Group page nonmember](https://user-images.githubusercontent.com/40231621/192077845-c66b481b-acec-4b85-b572-9c7e5bcb11eb.jpg)  
@@ -45,6 +46,7 @@ Screenshots:
 ![SS13 - Group page Member](https://user-images.githubusercontent.com/40231621/192077861-77a26ebf-8acf-401e-a489-c1f5978438e8.jpg)  
 
 Page: edit-group.php  
+Required in query string: group_id  
 Summary: Admins can remove other members of the group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user who is not the admin attempts to view this page, they are redirected to page-not-found.php.  
 Screenshot:  
 ![SS18 - Edit Group](https://user-images.githubusercontent.com/40231621/192077961-966b8edf-f097-4119-a033-e4d1f702f891.jpg)  
@@ -60,11 +62,13 @@ Screenshot:
 ![SS17 - Create Group](https://user-images.githubusercontent.com/40231621/192078007-c40ad4b8-9432-4e7d-bbed-edc47f9af9d8.jpg)  
 
 Page: delete-group.php  
+Required in query string: group_id  
 Summary: Admins can delete their group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user who is not the admin attempts to view this page, they are redirected to page-not-found.php.  
 Screenshot: 
 ![SS19 - Delete Group](https://user-images.githubusercontent.com/40231621/192078040-3c6e2c2f-2156-4be8-ac66-4be8bdc3b7c3.jpg)  
 
 Page: leave-group.php  
+Required in query string: group_id  
 Summary: Users can leave their group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user attempts to view this page and they are not a member, they are redirected to group.php.  
 Screenshot:  
 ![SS15 - Leave group](https://user-images.githubusercontent.com/40231621/192078087-2f633d9d-7498-407e-8f29-056cdff5138e.jpg)  
