@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // If Login function returns true, create new session
     if ($member) {
         $cms->getSession()->create($member);
-        redirect('profile.php');
+        redirect('dashboard.php');
     }
     else {
         $errors['message'] = 'Please try again.';
@@ -103,10 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             Don't have an account yet? Register <a href = 'register.php'>here.</a>
                         </p>
                             
-                        <input type = 'submit' id = 'submit' value = 'Login'>
+                        <input type = 'submit' id = 'submit' value = 'Log in'>
                     </form>
                 </div>
             </div>
         </div>
+        <footer>
+            Copyright &copy; 2022 Luminhealth
+        </footer>
     </body>
 </html>
