@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </a>
                 <ul>
                     <li><a href = 'dashboard.php'>Dashboard</a></li>
-                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><a href = 'group-search.php'>Group Search</a></li>
                     <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
