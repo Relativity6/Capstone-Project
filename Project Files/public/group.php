@@ -100,7 +100,7 @@ else {
                 </a>
                 <ul>
                     <li><a href = 'dashboard.php'>Dashboard</a></li>
-                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><a href = 'group-search.php'>Group Search</a></li>
                     <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
@@ -203,14 +203,14 @@ else {
                                         </p>
                                     </a>
 
-                                    <a href = '' id = 'delete_button'>
+                                    <a href = 'delete-group.php?group_id=<?=$group_id?>' id = 'delete_button'>
                                         <p>
                                             Delete group
                                         </p>
                                     </a>
                             <?php 
                                 } else { ?>
-                                    <a href = '' id = 'leave_button'>
+                                    <a href = 'leave-group.php?group_id=<?=$group_id?>' id = 'leave_button'>
                                         <p>
                                             Leave group
                                         </p>
