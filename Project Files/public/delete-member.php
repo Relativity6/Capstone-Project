@@ -14,19 +14,44 @@ if (!$member) {
     redirect('page-not-found.php');
 }
 
-$error = '';
+$errors = '';
+$admin_of = $cms->getMembership()->adminOf($id);
+$member_of = $cms->getMembership()->memberOf($id);
 
 // If Delete button was pressed
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Remove user from all groups for which they are a member
+    foreach ($member_of as $group) {
+        $errors = ($cms->getMembership()->removeMember($id, $group['group_id'])) ? '' : 'error';
+    }
+
+    // Delete process for all groups that user is admin of
+    foreach ($admin_of as $group) {
+
+        // Remove members from groups that will be deleted
+        $member_ids = $cms->getMembership()->getMembers((int)$group['group_id']);
+        foreach ($member_ids as $mem) {
+            $errors = ($cms->getMembership()->removeMember((int)$mem['user_id'], (int)$group['group_id'])) ? '' : 'error';
+        }
+
+        // Remove user (the admin) from groups
+        $errors = ($cms->getMembership()->removeMember($id, (int)$group['group_id'])) ? '' : 'error';
+
+        // Delete group
+        $errors = ($cms->getGroup()->delete($group['group_id'])) ? '' : 'error';
+    }
+
+    // Delete user account
     $result = $cms->getMember()->deleteMember($id, $member['profile_pic']);
-    
-    if ($result === false) {
-        $error = 'Sorry, there was an error while carrying out your request.';
+
+    if (!$errors && $result) {
+        $cms->getSession()->delete();
+        redirect('login.php');
     }
 
     else {
-        $cms->getSession()->delete();
-        redirect('login.php');
+        $error = 'Sorry, there was an error while carrying out your request.';
     }
 }
 ?>
@@ -56,17 +81,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </a>
                 <ul>
                     <li><a href = 'dashboard.php'>Dashboard</a></li>
-                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><a href = 'group-search.php'>Group Search</a></li>
                     <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
         </header>
         <main>
             <div id = 'container'>
-                <div id = 'container_header'>
-                    <h2>
+                <div class = 'section_header'>
+                    <p>
                         Delete Member Profile
-                    </h2>
+                    </p>
                 </div>
                 <div id = 'info_div'>
                     <div id = 'left_div'>
@@ -76,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <form action = 'delete-member.php' method = 'POST'>
 
                             <!-- If there is an error message -->
-                            <?php if ($error) { ?>
+                            <?php if ($errors) { ?>
                                 <p class = 'error_msg'>
                                     <?= $error ?>
                                 </p>
@@ -95,5 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </main>
+        <footer>
+            Copyright &copy; 2022 Luminhealth
+        </footer>
     </body>
 </html>
