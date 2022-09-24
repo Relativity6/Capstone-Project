@@ -190,5 +190,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
                 </div>
             </div>
         </div>
+        <footer>
+            Copyright &copy; 2022 Luminhealth
+        </footer>
     </body>
 </html>
