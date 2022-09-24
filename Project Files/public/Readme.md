@@ -13,7 +13,7 @@ Screenshot:
 ![SS06 - Login](https://user-images.githubusercontent.com/40231621/192077828-0b825829-332e-4814-9996-3bc180293863.jpg)  
 
 Page: Dashboard.php  
-Summary: Main navigation hub of the site. CDC Twitter feed.  
+Summary: Main navigation hub of the site. CDC Twitter feed.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
 ![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/192077834-c5dbcf42-680f-4ee3-9c2e-f889e92fbde8.jpg)  
 
@@ -23,17 +23,17 @@ Screenshot:
 ![SS08 - Profile](https://user-images.githubusercontent.com/40231621/192077880-613a9702-03b6-437e-87b5-075b01817fd4.jpg)  
 
 Page: edit-profile.php  
-Summary: Users may edit their profile information on this page.  
+Summary: Users may edit their profile information on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
 ![SS09 - Update profile](https://user-images.githubusercontent.com/40231621/192077894-d377a05d-a08a-46ec-b569-44667c40d90f.jpg)  
 
 Page: update-picture.php  
-Summary: Users may edit their profile picture on this page.  
+Summary: Users may edit their profile picture on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
 ![SS10 - Update picture](https://user-images.githubusercontent.com/40231621/192077897-afc17127-eaf5-4aa5-9612-950638c7012a.jpg)  
 
 Page: delete-member.php  
-Summary: Users may delete their LuminHealth account on this page.  
+Summary: Users may delete their LuminHealth account on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
 ![SS11 - Delete profile](https://user-images.githubusercontent.com/40231621/192077903-f529bf71-9548-4d22-818e-bb3bb28ecdf1.jpg)  
 
