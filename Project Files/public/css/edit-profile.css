@@ -35,7 +35,7 @@ header {
     box-sizing: border-box;
     position: relative;
     height: 150px;
-    width: 500px;
+    width: 600px;
     margin: 0;
     float: right;
 }
@@ -55,7 +55,7 @@ header {
 #header_nav ul {
     box-sizing: border-box;
     height: 80px;
-    width: 400px;
+    width: 500px;
     position: absolute;
     bottom: 10px;
     font-size: 17pt;
@@ -75,6 +75,15 @@ header {
 
 #header_nav li a:hover {
     text-shadow: 1px 1px 1px gray;
+}
+
+.current {
+    font-weight: 600;
+    color: #710040;
+}
+
+.current:hover {
+    text-shadow: none;
 }
 
 #container {
