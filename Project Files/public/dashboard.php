@@ -43,8 +43,8 @@ $admin_of = $cms->getMembership()->adminof($id);
                     <img id = 'thumbnail' src = 'uploads/<?=$member['profile_pic']?>' alt = 'User profile picture'>
                 </a>
                 <ul>
-                    <li><a href = 'dashboard.php'><span class = 'bold'>Dashboard</span></a></li>
-                    <li><a href = 'groups.php'>Groups</a></li>
+                    <li><span class = 'current'>Dashboard</span></li>
+                    <li><a href = 'group-search.php'>Group Search</a></li>
                     <li><a href = 'profile.php'>Profile</a></li>
                 </ul>
             </nav>
@@ -66,54 +66,55 @@ $admin_of = $cms->getMembership()->adminof($id);
                             </p>
                         </div>
 
-                        <!-- Make a table only if user is a part of atleast one group -->
-                        <?php if ($member_of || $admin_of) { ?>
-                        <table>
-                            <tr>
-                                <th>Group name</th>
-                                <th>Members</th>
-                                <th>Role</th>
-                                <th></th>
-                            </tr>
-                            
-                            <!-- Print admin'ed groups first -->
-                            <?php if ($admin_of) {
-                                    foreach($admin_of as $group) {
-                                        $group_info = $cms->getGroup()->get((int)$group['group_id']);
-                                        $members = $cms->getMembership()->getNumberOfMembers((int)$group['group_id']); ?>
+                        <div id = 'table_div'>
+                            <!-- Make a table only if user is a part of atleast one group -->
+                            <?php if ($member_of || $admin_of) { ?>
+                                <table>
                                     <tr>
-                                        <td><?=$group_info['name']?></td>
-                                        <td><?= $members ?></td>
-                                        <td>Admin</td>
-                                        <td>
-                                            <a id = 'go_button' href = 'group.php?group_id=<?=$group['group_id']?>'>
-                                                <p>
-                                                    Go
-                                                </p>
-                                            </a>
-                                        </td>
+                                        <th>Group name</th>
+                                        <th>Members</th>
+                                        <th>Role</th>
+                                        <th></th>
                                     </tr>
-                            <?php } } ?>
+                                    
+                                    <!-- Print admin'ed groups first -->
+                                    <?php if ($admin_of) {
+                                            foreach($admin_of as $group) {
+                                                $group_info = $cms->getGroup()->get((int)$group['group_id']);
+                                                $members = $cms->getMembership()->getNumberOfMembers((int)$group['group_id']); ?>
+                                            <tr>
+                                                <td><?=$group_info['name']?></td>
+                                                <td><?= $members ?></td>
+                                                <td>Admin</td>
+                                                <td>
+                                                    <a id = 'go_button' href = 'group.php?group_id=<?=$group['group_id']?>'>
+                                                        <p>
+                                                            Go
+                                                        </p>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    <?php } } ?>
 
-                            <!-- Print other groups -->
-                            <?php if ($member_of) {
-                                foreach($member_of as $group) {
-                                    $group_info = $cms->getGroup()->get((int)$group['group_id']);
-                                    $members = $cms->getMembership()->getNumberOfMembers((int)$group['group_id']); ?>  
-                                    <tr>
-                                        <td><?=$group_info['name']?></td>
-                                        <td><?=$members?></td>
-                                        <td>Member</td>
-                                        <td>
-                                            <a id = 'go_button' href = 'group.php?group_id=<?=$group['group_id']?>'>
-                                                <p>
-                                                    Go
-                                                </p>
-                                            </a>
-                                        </td>
-                                    </tr>
-                            <?php } } ?>
-                        </table>
+                                    <!-- Print other groups -->
+                                    <?php if ($member_of) {
+                                        foreach($member_of as $group) {
+                                            $group_info = $cms->getGroup()->get((int)$group['group_id']);
+                                            $members = $cms->getMembership()->getNumberOfMembers((int)$group['group_id']); ?>  
+                                            <tr>
+                                                <td><?=$group_info['name']?></td>
+                                                <td><?=$members?></td>
+                                                <td>Member</td>
+                                                <td>
+                                                    <a id = 'go_button' href = 'group.php?group_id=<?=$group['group_id']?>'>
+                                                        <p>
+                                                            Go
+                                                        </p>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                    <?php } } ?>
+                                </table>
 
                         <!-- If user is not in any groups yet -->
                         <?php } else { ?>              
@@ -121,6 +122,23 @@ $admin_of = $cms->getMembership()->adminof($id);
                                 You haven't joined any groups yet!
                             </p>
                         <?php } ?>
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div id = 'button_div'>
+                            <a id = 'new_button' href = 'new-group.php'>
+                                <p>
+                                    New Group
+                                </p>
+                            </a>
+
+                            <a id = 'search_button' href = 'group-search.php'>
+                                <p>
+                                    Group Search
+                                </p>
+                            </a>
+                        </div>
                     </div>
 
                     <div class = 'section_left' id = 'empty_section'>
@@ -133,6 +151,7 @@ $admin_of = $cms->getMembership()->adminof($id);
                 </div>
 
                 <div id = 'right_column'>
+                    <!-- Alert button -->
                     <div class = 'section_right' id = 'alert_section'>
                         <p class = 'bold'>
                             Had a positive test?
@@ -147,6 +166,7 @@ $admin_of = $cms->getMembership()->adminof($id);
                         </a>
                     </div>
 
+                    <!-- DocFinder button -->
                     <div class = 'section_right' id = 'docfinder'>
                         <p class = 'bold'>
                             DocFinder
@@ -156,11 +176,12 @@ $admin_of = $cms->getMembership()->adminof($id);
                         </p>
                         <a href = '' id = 'docfinder_button'>
                             <p>
-                                Find doctor
+                                Find Doctor
                             </p>
                         </a>
                     </div>
 
+                    <!-- CDC Twitter feed -->
                     <div class = 'section_right' id = 'twitter_feed'>
                         <div class = 'section_header'>
                             <p>
