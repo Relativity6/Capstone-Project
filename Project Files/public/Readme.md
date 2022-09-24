@@ -38,7 +38,7 @@ Screenshot:
 ![SS11 - Delete profile](https://user-images.githubusercontent.com/40231621/192077903-f529bf71-9548-4d22-818e-bb3bb28ecdf1.jpg)  
 
 Page: group.php  
-Summary: This page provides group details for the group whose ID is in the query string. If the user is not a member, it provides a password input field to join. If the user is a member, it displays group details.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
+Summary: This page provides group details for the group whose ID is in the query string. If the user is not a member, it provides a password input field to join. If the user is a member, it displays group details and a link to leave-group.php.  If the user is the admin of the group, it displays group details and links to edit-group.php and delete-group.php.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshots:  
 ![SS14 - Group page nonmember](https://user-images.githubusercontent.com/40231621/192077845-c66b481b-acec-4b85-b572-9c7e5bcb11eb.jpg)  
 ![SS13 - Group page Admin](https://user-images.githubusercontent.com/40231621/192077854-828ce7ab-c167-463f-bdc7-1042aed4ce93.jpg)  
