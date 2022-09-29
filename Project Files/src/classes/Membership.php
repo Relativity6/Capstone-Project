@@ -93,6 +93,14 @@ class Membership
         }
     }
 
+    public function getMembersAndAdmin(int $group_id)
+    {
+        $sql = "SELECT user_id
+                FROM membership
+                WHERE group_id = :group_id AND (role = 'member' OR role = 'admin');";
+        return $this->db->runSql($sql, [$group_id])->fetchAll();
+    }
+
     public function getNumberOfMembers(int $group_id): int
     {
         $sql = "SELECT user_id
