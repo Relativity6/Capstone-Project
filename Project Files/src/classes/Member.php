@@ -24,6 +24,14 @@ class Member
                 WHERE id = :id;";
         return $this->db->runSql($sql, [$id])->fetch();
     }
+
+    public function getEmail(int $id)
+    {
+        $sql = "SELECT email
+                FROM members
+                WHERE id = :id;";
+        return $this->db->runSql($sql, [$id])->fetch();
+    }
     
 
     public function create(array $member, string $temporary, string $destination): bool
