@@ -15,6 +15,17 @@ $password = 'IFT402_Capstone';
 
 $dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset";
 
+// SMTP server settings
+$email_config = [
+    'server'      => 'smtp.sendgrid.net',
+    'port'        => '587',
+    'username'    => 'apikey',
+    'password'    => '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',
+    'security'    => 'tls',
+    'admin_email' => 'Luminhealth402@outlook.com',
+    'debug'       => 0
+];
+
 // File upload settings
 define('UPLOADS', DOC_ROOT . 'uploads' . DIRECTORY_SEPARATOR); //Image upload folder
 define('MEDIA_TYPES', ['image/jpeg', 'image/png', 'image/gif',]);                    // Allowed file types
