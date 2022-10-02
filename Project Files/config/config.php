@@ -19,8 +19,8 @@ $dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset";
 $email_config = [
     'server'      => 'smtp.sendgrid.net',
     'port'        => '587',
-    'username'    => 'apikey',
-    'password'    => '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',
+    'username'    => 'paste username here',
+    'password'    => 'paste key here',
     'security'    => 'tls',
     'admin_email' => 'Luminhealth402@outlook.com',
     'debug'       => 0
