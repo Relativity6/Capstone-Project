@@ -182,7 +182,7 @@ else {
                             <p id = 'alert_prompt2'>
                                 Alert your group members by clicking the button below.
                             </p>
-                            <a href = '' id = 'alert_button'>
+                            <a href = 'alert.php' id = 'alert_button'>
                                 <p>
                                     Alert
                                 </p>
