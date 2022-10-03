@@ -17,39 +17,47 @@ if (!$member) {
 $members = [];
 $member_emails = [];
 
-// Get ID's of all groups that the user is in
-$member_of = $cms->getMembership()->memberof($id);
-$admin_of = $cms->getMembership()->adminof($id);
-$inGroups = array_merge($member_of, $admin_of);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-// Get ID's of all members that the user is associated with. "members" is a multidimensional array. (eg. $members[0]['user_id'])
-foreach ($inGroups as $group) {
-    $member_ids = $cms->getMembership()->getMembersAndAdmin($group['group_id']);
-    $members = array_merge($members, $member_ids);
+    // Get ID's of all groups that the user is in
+    $member_of = $cms->getMembership()->memberof($id);
+    $admin_of = $cms->getMembership()->adminof($id);
+    $inGroups = array_merge($member_of, $admin_of);
+
+    // Get ID's of all members that the user is associated with
+    foreach ($inGroups as $group) {
+        $member_ids = $cms->getMembership()->getAllBesidesUser($group['group_id'], $id);
+        if ($member_ids) {
+            $members = array_merge($members, $member_ids);
+        }
+    }
+
+    // Remove duplicate entries in $members array
+    $members = array_unique($members, SORT_REGULAR);
+
+    // Get emails of all members in $members array
+    foreach ($members as $mem) {
+        $email_address = $cms->getMember()->getEmail($mem['user_id']);
+        array_push($member_emails, $email_address);
+    }
+
+    // Email parameters
+    $email      = new Email ($email_config);
+    $from       = $email_config['admin_email'];
+    $subject    = 'LuminHealth Alert Message';
+    $message    = 'You have possibly been exposed to COVID-19. Taking a COVID-19 test is highly recommended.';
+
+    // Add member emails to recipient list
+    foreach ($member_emails as $address) {
+        $email->AddAddress($address['email']);
+    }
+
+    // Send email
+    $result = $email->sendEmail($from, $subject, $message);
+
 }
 
-// Remove duplicate entries in members array
-$members = array_unique($members, SORT_REGULAR);
 
-// Get emails of all members in $members array. $member_emails array is a multidimensional array.  (eg. $member_emails[0]['email'])
-foreach ($members as $mem) {
-    $email_address = $cms->getMember()->getEmail($mem['user_id']);
-    array_push($member_emails, $email_address);
-}
-
-// Email parameters
-$email      = new Email ($email_config);
-$from       = $email_config['admin_email'];
-$subject    = 'LuminHealth Alert Message';
-$message    = 'You have possibly been exposed to COVID-19. Taking a COVID-19 test is highly recommended.';
-
-// Add member emails to recipient list
-foreach ($member_emails as $address) {
-    $email->AddAddress($address['email']);
-}
-
-// Send email
-$result = $email->sendEmail($from, $subject, $message);
 
 ?>
 
@@ -84,10 +92,26 @@ $result = $email->sendEmail($from, $subject, $message);
             </nav>
         </header>
         <main>
-            <?=var_dump($members)?>
-            <?=var_dump($members[0]['user_id'])?>
-            <?=var_dump($member_emails)?>
-            <?=var_dump($member_emails[0]['email'])?>
+            <div id = 'container'>
+                <h3>
+                    COVID-19 Alert System
+                </h3>
+
+                <p id = 'prompt'>
+                    By clicking the Alert button below, you will anonymously notify the members of your groups of their 
+                    possible exposure to <span id = 'c19'>COVID-19</span>.  Your name and other personal information will not be shared.
+                </p>
+
+                <form action = 'alert.php' method = 'POST'>
+                    <input type = 'submit' id = 'alert_button' value = 'Alert'>
+                </form>
+
+                <a id = 'back_button' href = 'dashboard.php'>
+                    <p>
+                        Back
+                    </p>
+                </a>
+            </div>
         </main>
         <footer>
             Copyright &copy; 2022 Luminhealth
