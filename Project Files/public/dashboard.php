@@ -159,7 +159,7 @@ $admin_of = $cms->getMembership()->adminof($id);
                         <p>
                             Alert your group members by clicking the button below.
                         </p>
-                        <a href = '' id = 'alert_button'>
+                        <a href = 'alert.php' id = 'alert_button'>
                             <p>
                                 Alert
                             </p>
