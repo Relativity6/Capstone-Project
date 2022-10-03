@@ -55,6 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Send email
     $result = $email->sendEmail($from, $subject, $message);
 
+    if ($result) {
+        redirect('dashboard.php');
+    }
 }
 
 
