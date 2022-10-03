@@ -101,6 +101,18 @@ class Membership
         return $this->db->runSql($sql, [$group_id])->fetchAll();
     }
 
+    // Get the admin and all members of a group, excluding the user
+    // (alert.php)
+    public function getAllBesidesUser(int $group_id, int $user_id)
+    {
+        $sql = "SELECT user_id
+                FROM membership
+                WHERE group_id = :group_id AND (role = 'member' OR role = 'admin') AND NOT user_id = :user_id;";
+        return $this->db->runSql($sql, ['group_id' => $group_id, 'user_id' => $user_id])->fetchAll();
+    }
+
+    // Return the number of people in a group
+    // (Dashboard.php)
     public function getNumberOfMembers(int $group_id): int
     {
         $sql = "SELECT user_id
@@ -130,6 +142,7 @@ class Membership
     }
 
     // Remove a member from a group
+    // (edit_group.php)
     public function removeMember(int $member_id, int $group_id): bool
     {
         $sql = "DELETE
