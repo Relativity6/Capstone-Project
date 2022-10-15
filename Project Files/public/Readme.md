@@ -25,7 +25,7 @@ Screenshot:
 Page: edit-profile.php  
 Summary: Users may edit their profile information on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![SS09 - Update profile](https://user-images.githubusercontent.com/40231621/192077894-d377a05d-a08a-46ec-b569-44667c40d90f.jpg)  
+![SS09 - Update profile](https://user-images.githubusercontent.com/40231621/196007012-6f2118cb-41dc-42ba-baf4-8fa6f181b8cf.jpg)  
 
 Page: update-picture.php  
 Summary: Users may edit their profile picture on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
