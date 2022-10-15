@@ -92,10 +92,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </header>
         <main>
             <div id = 'container'>
-                <div id = 'container_header'>
-                    <h2>
+                <div class = 'section_header'>
+                    <p>
                         Update Profile Picture
-                    </h2>
+                    </p>
                 </div>
                 <div id = 'left_div'>
                     <h3>
@@ -123,8 +123,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type = 'submit' id = 'submit' value = 'Submit picture'>
                     </form>
 
-                    <a href = 'profile.php'>
-                        <p id = 'back_button'>
+                    <a id = 'back_button' href = 'profile.php'>
+                        <p>
                             Back to profile page
                         </p>
                     </a>
