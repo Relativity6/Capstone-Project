@@ -1,7 +1,21 @@
 The public folder will hold all files/pages that can be accessed by users of the application.
 
 ## Page Summaries
-
+### Page List
+- [Register page](https://github.com/Relativity6/Capstone-Project/tree/main/Project%20Files/public#page-registerphp)
+- Login page
+- Dashboard page
+- Profile page
+- Edit Profile page
+- Update Profile Picture page
+- Delete Profile page
+- Group page
+- Edit Group page
+- Group Search page
+- New Group page
+- Delete Group page
+- Leave Group page
+- Alert page
 
 ### Page: register.php  
 **Summary**: Users may register a LuminHealth account on this page.  
