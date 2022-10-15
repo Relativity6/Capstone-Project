@@ -41,9 +41,9 @@ Page: group.php
 Required in query string: group_id  
 Summary: This page provides group details for the group whose ID is in the query string. If the user is not a member, it provides a password input field to join. If the user is a member, it displays group details and a link to leave-group.php.  If the user is the admin of the group, it displays group details and links to edit-group.php and delete-group.php.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshots:  
-![SS14 - Group page nonmember](https://user-images.githubusercontent.com/40231621/192077845-c66b481b-acec-4b85-b572-9c7e5bcb11eb.jpg)  
-![SS13 - Group page Admin](https://user-images.githubusercontent.com/40231621/192077854-828ce7ab-c167-463f-bdc7-1042aed4ce93.jpg)  
-![SS13 - Group page Member](https://user-images.githubusercontent.com/40231621/192077861-77a26ebf-8acf-401e-a489-c1f5978438e8.jpg)  
+![SS14 - Group page nonmember](https://user-images.githubusercontent.com/40231621/196007301-99016e34-3b15-4cfb-abca-7fac3c0d1062.jpg)  
+![SS13 - Group page Admin](https://user-images.githubusercontent.com/40231621/196007313-7b5297a3-87eb-4673-a44f-d3e6046ff916.jpg)  
+![SS13 - Group page Member](https://user-images.githubusercontent.com/40231621/196007321-280958b2-39e9-4a84-be77-0ea3b76e229a.jpg)  
 
 Page: edit-group.php  
 Required in query string: group_id  
