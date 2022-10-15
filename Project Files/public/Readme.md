@@ -3,19 +3,19 @@ The public folder will hold all files/pages that can be accessed by users of the
 ## Page Summaries
 ### Page List
 - [Register page](#page-registerphp)
-- Login page
-- Dashboard page
-- Profile page
-- Edit Profile page
-- Update Profile Picture page
-- Delete Profile page
-- Group page
-- Edit Group page
-- Group Search page
-- New Group page
-- Delete Group page
-- Leave Group page
-- Alert page
+- [Login page](#page-loginphp)
+- [Dashboard page](#page-dashboardphp)
+- [Profile page](#page-profilephp)
+- [Edit Profile page](#page-edit-profilephp)
+- [Update Profile Picture page](#page-update-picturephp)
+- [Delete Profile page](#page-delete-memberphp)
+- [Group page](#page-groupphp)
+- [Edit Group page](#page-edit-groupphp)
+- [Group Search page](#page-group-searchphp)
+- [New Group page](#page-new-groupphp)
+- [Delete Group page](#page-delete-groupphp)
+- [Leave Group page](#page-leave-groupphp)
+- [Alert page](#page-alertphp)
 
 ### Page: register.php  
 **Summary**: Users may register a LuminHealth account on this page.  
