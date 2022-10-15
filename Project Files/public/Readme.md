@@ -30,7 +30,7 @@ Screenshot:
 Page: update-picture.php  
 Summary: Users may edit their profile picture on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![SS10 - Update picture](https://user-images.githubusercontent.com/40231621/192077897-afc17127-eaf5-4aa5-9612-950638c7012a.jpg)  
+![SS10 - Update picture](https://user-images.githubusercontent.com/40231621/196007053-4dd3b404-08ff-4d44-b1b3-df7ebcb8a4fb.jpg)  
 
 Page: delete-member.php  
 Summary: Users may delete their LuminHealth account on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
