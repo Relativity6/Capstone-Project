@@ -15,7 +15,7 @@ Screenshot:
 Page: Dashboard.php  
 Summary: Main navigation hub of the site. CDC Twitter feed.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/192077834-c5dbcf42-680f-4ee3-9c2e-f889e92fbde8.jpg)  
+![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/196006927-161f1a8d-bb0c-460e-a258-fd7d207d80bd.jpg)  
 
 Page: profile.php  
 Summary: Users may see their profile information on this page. If a user attempts to view this page without being logged in, they are redirected to login.php.  
