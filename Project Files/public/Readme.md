@@ -2,7 +2,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 
 ## Page Summaries
 ### Page List
-- [Register page](https://github.com/Relativity6/Capstone-Project/tree/main/Project%20Files/public#page-registerphp)
+- [Register page](#page-registerphp)
 - Login page
 - Dashboard page
 - Profile page
