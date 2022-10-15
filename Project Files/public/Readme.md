@@ -2,7 +2,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 
 ## Page Summaries
 
-Page: register.php  
+#####Page: register.php  
 Summary: Users may register a LuminHealth account on this page.  
 Screenshot:  
 ![SS07 - Register](https://user-images.githubusercontent.com/40231621/192077821-f902936d-7762-4fce-a165-09b01bb7c984.jpg)  
