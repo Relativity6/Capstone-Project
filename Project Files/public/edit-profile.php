@@ -87,10 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </header>
         <main>
             <div id = 'container'>
-                <div id = 'container_header'>
-                    <h2>
+                <div class = 'section_header'>
+                    <p>
                         Update Profile Info
-                    </h2>
+                    </p>
                 </div>
 
                 <form action = 'edit-profile.php' method = 'POST'>
@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <?php } ?>
 
                     <!-- Phone number -->
-                    <label for = 'phone_num'>Phone number (Format: X-XXX-XXX-XXXX):</label>
+                    <label for = 'phone_num'>Phone number <span id = 'format_prompt'>(Format: X-XXX-XXX-XXXX)</span>:</label>
                     <input type = 'tel' name = 'phone_num'  pattern = '[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}' id = 'phone_num'
                         value = '<?=$member['phone_num']?>'>
                     <?php if ($errors['phone_num']) {?>
