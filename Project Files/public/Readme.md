@@ -35,7 +35,7 @@ Screenshot:
 Page: delete-member.php  
 Summary: Users may delete their LuminHealth account on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![SS11 - Delete profile](https://user-images.githubusercontent.com/40231621/192077903-f529bf71-9548-4d22-818e-bb3bb28ecdf1.jpg)  
+![SS11 - Delete profile](https://user-images.githubusercontent.com/40231621/196007111-7086a7ed-4ac8-4d1e-8394-0606b98703e7.jpg)  
 
 Page: group.php  
 Required in query string: group_id  
