@@ -70,4 +70,4 @@ Page: leave-group.php
 Required in query string: group_id  
 Summary: Users can leave their group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user attempts to view this page and they are not a member, they are redirected to group.php.  
 Screenshot:  
-![SS15 - Leave group](https://user-images.githubusercontent.com/40231621/192078087-2f633d9d-7498-407e-8f29-056cdff5138e.jpg)  
+![SS15 - Leave group](https://user-images.githubusercontent.com/40231621/196009959-a9ee2d85-586e-4b99-ae1e-fe72a27f5886.jpg)  
