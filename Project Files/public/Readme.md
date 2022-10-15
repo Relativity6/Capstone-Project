@@ -71,3 +71,8 @@ Required in query string: group_id
 Summary: Users can leave their group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user attempts to view this page and they are not a member, they are redirected to group.php.  
 Screenshot:  
 ![SS15 - Leave group](https://user-images.githubusercontent.com/40231621/196009959-a9ee2d85-586e-4b99-ae1e-fe72a27f5886.jpg)  
+
+Page: alert.php  
+Summary: If users click the Alert button displayed on the page, all members that the user is associated with in his/her groups will be notified via email and SMS. The page then redirects back to dashboard.php. A "cancel" button is also provided which redirects to dashboard.php.  
+Screenshot:  
+![SS25 - Alert page](https://user-images.githubusercontent.com/40231621/196010069-3f1120de-0b9c-429c-906e-4e6a388fa75b.jpg)  
