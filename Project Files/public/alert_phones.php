@@ -76,8 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $email->sendEmail($from, $subject, $message);
 
     // Twilio SMS parameters
-    $sid = 'ACc63ed1aeb62ebcecf3ddb754425e7c05';
-    $token = 'c8a9ad33a89b9ee17ee278dd16b26795';
+    $sid = 'PLACEHOLDER';
+    $token = 'PLACEHOLDER';
     $twilio = new Client($sid, $token);
 
     // Send Twilio messages for each number
