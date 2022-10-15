@@ -64,7 +64,7 @@ Page: delete-group.php
 Required in query string: group_id  
 Summary: Admins can delete their group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user who is not the admin attempts to view this page, they are redirected to page-not-found.php.  
 Screenshot: 
-![SS19 - Delete Group](https://user-images.githubusercontent.com/40231621/192078040-3c6e2c2f-2156-4be8-ac66-4be8bdc3b7c3.jpg)  
+![SS19 - Delete Group](https://user-images.githubusercontent.com/40231621/196009930-d3e2ea40-f816-4435-9f70-e7534b68fd73.jpg)  
 
 Page: leave-group.php  
 Required in query string: group_id  
