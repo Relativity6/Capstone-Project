@@ -25,7 +25,6 @@ Screenshot:
 Page: edit-profile.php  
 Summary: Users may edit their profile information on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![SS09 - Update profile](https://user-images.githubusercontent.com/40231621/196007012-6f2118cb-41dc-42ba-baf4-8fa6f181b8cf.jpg)  
 
 Page: update-picture.php  
 Summary: Users may edit their profile picture on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
@@ -49,7 +48,7 @@ Page: edit-group.php
 Required in query string: group_id  
 Summary: Admins can remove other members of the group on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  If a user who is not the admin attempts to view this page, they are redirected to page-not-found.php.  
 Screenshot:  
-![SS18 - Edit Group](https://user-images.githubusercontent.com/40231621/192077961-966b8edf-f097-4119-a033-e4d1f702f891.jpg)  
+![SS18 - Edit Group](https://user-images.githubusercontent.com/40231621/196009895-e6174e8a-fd79-4c02-b82f-b5fb5b899b1d.jpg)  
 
 Page: group-search.php  
 Summary: Users can search for groups to join on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
