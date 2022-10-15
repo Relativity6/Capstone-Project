@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
     </head>
     <body>
         <div id = 'container'>
-            <img id = 'hero_image' src = 'img/jed-villejo-pumko2FFxY0-unsplash.jpg' alt = ''/>
+            <img id = 'hero_image' src = 'img/img_register.jpg'/>
 
             <div id = 'content'>
                 <img id = 'logo' src = 'img/logo2_transparent.png' alt = 'LuminHealth logo'>
