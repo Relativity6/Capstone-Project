@@ -40,6 +40,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 ### Page: edit-profile.php  
 **Summary**: Users may edit their profile information on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 **Screenshot**:  
+![SS09 - Update profile](https://user-images.githubusercontent.com/40231621/196010545-3ac2f53d-8b80-472f-8bc5-16c4f7c29aeb.jpg)  
 
 ### Page: update-picture.php  
 **Summary**: Users may edit their profile picture on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
