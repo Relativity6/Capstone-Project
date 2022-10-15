@@ -188,6 +188,13 @@ $admin_of = $cms->getMembership()->adminof($id);
                                 CDC Twitter Feed
                             </p>
                         </div>
+                        <div id = 'feed_div'>
+                            <a class="twitter-timeline" href="https://twitter.com/CDCgov?ref_src=twsrc%5Etfw" 
+                                data-chrome = 'noheader nofooter' 
+                                data-tweet-limit = '20'
+                                data-width = '250'>Tweets by CDCgov</a> 
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
                     </div>
                 </div>
             </div>
