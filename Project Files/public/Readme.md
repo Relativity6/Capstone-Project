@@ -26,7 +26,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 **Summary**: Users may login to their account on this page.  
 **Screenshot**:  
 ![SS06 - Login](https://user-images.githubusercontent.com/40231621/192077828-0b825829-332e-4814-9996-3bc180293863.jpg)  
-
+##
 ### Page: Dashboard.php  
 **Summary**: Main navigation hub of the site. CDC Twitter feed.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 **Screenshot**:  
