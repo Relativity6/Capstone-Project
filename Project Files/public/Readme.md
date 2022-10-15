@@ -20,7 +20,7 @@ Screenshot:
 Page: profile.php  
 Summary: Users may see their profile information on this page. If a user attempts to view this page without being logged in, they are redirected to login.php.  
 Screenshot:  
-![SS08 - Profile](https://user-images.githubusercontent.com/40231621/192077880-613a9702-03b6-437e-87b5-075b01817fd4.jpg)  
+![SS08 - Profile](https://user-images.githubusercontent.com/40231621/196006968-806b08c8-4a75-460f-a4b8-f100f2de1783.jpg)  
 
 Page: edit-profile.php  
 Summary: Users may edit their profile information on this page.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
