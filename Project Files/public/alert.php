@@ -1,6 +1,7 @@
 <?php
 declare(strict_types = 1);
 include '../src/bootstrap.php';
+use Twilio\Rest\Client;
 
 // If the user is not logged in, redirect to login
 $id = (int) $_SESSION['id'];
@@ -16,17 +17,30 @@ if (!$member) {
 
 $members = [];
 $member_emails = [];
+$member_phone_nums = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get ID's of all groups that the user is in
     $member_of = $cms->getMembership()->memberof($id);
     $admin_of = $cms->getMembership()->adminof($id);
-    $inGroups = array_merge($member_of, $admin_of);
+
+    // if - elseif's to handle possible false boolean returned from memberof and adminof functions
+    if ($member_of && $admin_of) {
+        $inGroups = array_merge($member_of, $admin_of);
+    }
+
+    elseif ($member_of && !$admin_of) {
+        $inGroups = $member_of;
+    }
+
+    elseif ($admin_of && !$member_of) {
+        $inGroups = $admin_of;
+    }
 
     // Get ID's of all members that the user is associated with
     foreach ($inGroups as $group) {
-        $member_ids = $cms->getMembership()->getAllBesidesUser($group['group_id'], $id);
+        $member_ids = $cms->getMembership()->getAllBesidesUser((int)$group['group_id'], $id);
         if ($member_ids) {
             $members = array_merge($members, $member_ids);
         }
@@ -35,10 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Remove duplicate entries in $members array
     $members = array_unique($members, SORT_REGULAR);
 
-    // Get emails of all members in $members array
     foreach ($members as $mem) {
-        $email_address = $cms->getMember()->getEmail($mem['user_id']);
+
+        // Get emails of all members in $members array
+        $email_address = $cms->getMember()->getEmail((int)$mem['user_id']);
         array_push($member_emails, $email_address);
+
+        // Get phone numbers of all members in $members array
+        $phone_num = $cms->getMember()->getPhoneNum((int)$mem['user_id']);
+        $formatted_num = Validate::formatPhoneNum($phone_num['phone_num']);
+        array_push($member_phone_nums, $formatted_num);
     }
 
     // Email parameters
@@ -54,6 +74,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Send email
     $result = $email->sendEmail($from, $subject, $message);
+
+    // Twilio SMS parameters
+    $sid = 'SID_PLACEHOLDER';
+    $token = 'TOKEN_PLACEHOLDER';
+    $twilio = new Client($sid, $token);
+
+    // Send Twilio messages for each number
+    foreach ($member_phone_nums as $num) {
+        $message = $twilio->messages->create($num,
+                                            [
+                                                "body" => "LuminHealth Alert Message - You have possibly been exposed to COVID-19. Taking a COVID-19 test is highly recommended.",
+                                                "from" => "+16182437035"
+                                            ]
+                                        );
+    }
 
     if ($result) {
         redirect('dashboard.php');
