@@ -16,6 +16,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 - [Delete Group page](#page-delete-groupphp)
 - [Leave Group page](#page-leave-groupphp)
 - [Alert page](#page-alertphp)
+- [DocFinder page](#page-docfinderphp)
 
 ### Page: register.php  
 **Summary**: Users may register a LuminHealth account on this page.  
