@@ -1,0 +1,167 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to bottom right, #FFFFFF, #975c7e);
+    background-image: url('../img/background_docfinder.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    box-sizing: border-box;
+    height: 150px;
+    margin: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #71004080;
+    box-shadow: 0px 1px 3px #7e3046;
+}
+
+#header_logo {
+    height: 100px;
+    width: 300px;
+    padding: 0;
+    float: left;
+    position: relative;
+    left: 30px;
+    top: 25px;
+}
+
+#header_nav {
+    box-sizing: border-box;
+    position: relative;
+    height: 150px;
+    width: 600px;
+    margin: 0;
+    float: right;
+}
+
+#thumbnail {
+    box-sizing: border-box;
+    height: 80px;
+    width: 80px;
+    margin-top: 30px;
+    margin-right: 40px;
+    border-radius: 50%;
+    border: 1px solid #710020;
+    box-shadow: 2px 2px 3px gray;
+    float: right;
+}
+
+#header_nav ul {
+    box-sizing: border-box;
+    height: 80px;
+    width: 500px;
+    position: absolute;
+    bottom: 10px;
+    font-size: 17pt;
+    margin: 0;
+}
+
+#header_nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+#header_nav li a {
+    text-decoration: none;
+    font-weight:500;
+    color: #710040;
+}
+
+#header_nav li a:hover {
+    text-shadow: 1px 1px 1px gray;
+}
+
+.current {
+    font-weight: 600;
+    color: #710040;
+}
+
+.current:hover {
+    text-shadow: none;
+}
+
+#container {
+    height: 820px;
+    width: 900px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f5f5f5;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px black;
+}
+
+.section_header {
+    box-sizing: border-box;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    background-image: radial-gradient(#FFFFFF,rgb(219, 219, 219));
+    border-bottom: 1px solid gray;
+    box-shadow: 0px 1px 1px gray;
+    border-radius: 5px;
+}
+
+.section_header p {
+    box-sizing: border-box;
+    margin-top: 0px;
+    padding-top: 17px;
+    font-size: 16pt;
+    font-weight: 600;
+    text-align: center;
+}
+
+#map {
+    height: 500px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px black;
+}
+
+.fail {
+    box-sizing: border-box;
+    padding-top: 220px;
+    text-align: center;
+    font-size: 16pt;
+    color: #710020;
+}
+
+#prompt {
+    width: 800px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 13pt;
+    line-height: 2em;
+}
+
+.docfinder {
+    color: #710020;
+    font-weight: 600;
+}
+
+footer {
+    box-sizing: border-box;
+    height: 30px;
+    width: 100%;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    background-image: radial-gradient(#FFFFFF,rgb(196, 196, 196));
+    border-top: 3px ridge #71004080;
+    font-size: 11pt;
+    text-align: center;
+}
