@@ -89,3 +89,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 **Screenshot**:  
 ![SS25 - Alert page](https://user-images.githubusercontent.com/40231621/196010069-3f1120de-0b9c-429c-906e-4e6a388fa75b.jpg)  
 ##
+### Page: docfinder.php  
+**Summary**: This page calls the Google Maps and Google Places API's to draw a map which highlights all doctors within a 5km radius of the user's geolocation.  
+**Screenshot**:  
+![SS26 - DocFinder](https://user-images.githubusercontent.com/40231621/198848043-7739b00c-8045-4356-ac34-a5cef69dade4.jpg)
