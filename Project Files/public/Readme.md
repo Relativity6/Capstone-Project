@@ -29,7 +29,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 ![SS06 - Login](https://user-images.githubusercontent.com/40231621/192077828-0b825829-332e-4814-9996-3bc180293863.jpg)  
 ##
 ### Page: Dashboard.php  
-**Summary**: Main navigation hub of the site. CDC Twitter feed.  If a user attempts to view this page without being logged in, they are redirected to login.php. This page calls Twitter API to display a feed for the Centers for Disease Control (CDC) Twitter feed.  It also calls two other API's, a greeting message service and a COVID-19 health tips service, which were made specifically for this project.    
+**Summary**: Main navigation hub of the site. CDC Twitter feed.  If a user attempts to view this page without being logged in, they are redirected to login.php. This page calls Twitter API to display a feed for the Centers for Disease Control (CDC) Twitter feed.  It also calls two other API's, a greeting message service and a COVID-19 health tips service, which were made specifically made for this project.    
 **Screenshot**:  
 ![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/203656525-82b957d8-44a9-46aa-a6fa-bdb541a6f1d0.jpg)    
 ##
