@@ -31,7 +31,7 @@ The public folder will hold all files/pages that can be accessed by users of the
 ### Page: Dashboard.php  
 **Summary**: Main navigation hub of the site. CDC Twitter feed.  If a user attempts to view this page without being logged in, they are redirected to login.php.  
 **Screenshot**:  
-![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/196006927-161f1a8d-bb0c-460e-a258-fd7d207d80bd.jpg)  
+![SS12 - Dashboard](https://user-images.githubusercontent.com/40231621/203656525-82b957d8-44a9-46aa-a6fa-bdb541a6f1d0.jpg)    
 ##
 ### Page: profile.php  
 **Summary**: Users may see their profile information on this page. If a user attempts to view this page without being logged in, they are redirected to login.php.  
